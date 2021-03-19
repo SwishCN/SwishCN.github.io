@@ -1,0 +1,580 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Swish">
+  <meta name="keywords" content="">
+  
+  <title>Java核心基础day10笔记 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Swish's Blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Java核心基础day10笔记">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-03-04 00:00" pubdate>
+        March 4, 2021
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.5k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      16
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Java核心基础day10笔记</h1>
+            
+            <div class="markdown-body">
+              <h2 id="04-05-06-07"><a href="#04-05-06-07" class="headerlink" title="04 05 06 07"></a>04 05 06 07</h2><h3 id="面向对象的特征一：封装与隐藏"><a href="#面向对象的特征一：封装与隐藏" class="headerlink" title="面向对象的特征一：封装与隐藏"></a>面向对象的特征一：封装与隐藏</h3><h4 id="一、问题的引入："><a href="#一、问题的引入：" class="headerlink" title="一、问题的引入："></a>一、问题的引入：</h4><p>当我们创建一个类的对象以后，我们可以通过“对象.属性”的方式，对对象的属性进行赋值。这里，赋值操作要受到属性的数据类型和存储范围的制约。除此之外，没有其他制约条件。但是，在实际问题中，我们往往需要给属性加入额外的限制条件。这个条件就不能在属性声明时体现，我们只能通过方法进行限制条件的添加<br>同时，我们需要避免用户再次使用“对象.属性”的方式对属性进行赋值。<br>则需要将属性声明为私有的(private)</p>
+<p>此时，针对属性就体现了封装性</p>
+<h4 id="二、封装性的体现："><a href="#二、封装性的体现：" class="headerlink" title="二、封装性的体现："></a>二、封装性的体现：</h4><p>我们将类的属性xxx私有化(private)，同时，提供公共的(public)方法来获取(getXxx)和设置此属性(setXxx)的值</p>
+<p>不对外暴露的私有的方法</p>
+<h4 id="三、封装性的体现，需要权限修饰符来配合"><a href="#三、封装性的体现，需要权限修饰符来配合" class="headerlink" title="三、封装性的体现，需要权限修饰符来配合"></a>三、封装性的体现，需要权限修饰符来配合</h4><p>1.Java规定的4种权限（从小到大排列）：private、缺省、protected、public</p>
+<p>置于类的成员定义前，用来限定对象对该类成员对访问权限</p>
+<table>
+<thead>
+<tr>
+<th>修饰符</th>
+<th>类内部</th>
+<th>同一个包</th>
+<th>不同包的子类(继承)</th>
+<th>同一个工程</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>private(-)</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>(缺省)</td>
+<td>Yes</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>protected(#)</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>public(+)</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+<p>2.四种权限都可以修饰类的内部结构：属性、方法、构造器、内部类</p>
+<p>3.修饰类只能使用：缺省、public</p>
+<p>总结封装性：Java提供了4种权限修饰符来修饰类及类的内部结构，体现类及类内部结构被调用时可见性的大小</p>
+<h2 id="09-10"><a href="#09-10" class="headerlink" title="09 10"></a>09 10</h2><h3 id="构造器（或构造方法、constructor）的使用"><a href="#构造器（或构造方法、constructor）的使用" class="headerlink" title="构造器（或构造方法、constructor）的使用"></a>构造器（或构造方法、constructor）的使用</h3><h4 id="一、构造器的作用："><a href="#一、构造器的作用：" class="headerlink" title="一、构造器的作用："></a>一、构造器的作用：</h4><p>创建对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 创建类的对象：new + 构造器</span><br>Person p = <span class="hljs-keyword">new</span> Person();<br></code></pre></td></tr></table></figure>
+
+<h4 id="二、说明："><a href="#二、说明：" class="headerlink" title="二、说明："></a>二、说明：</h4><p>1.如果没有显式的定义类的构造器的话，则系统默认提供一个空参的构造器,构造器权限跟类的权限相同</p>
+<p>2.定义构造器的格式：权限修饰符 类名(形参列表) {}</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//构造器 不加void</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Person</span><span class="hljs-params">()</span> </span>&#123;&#125;<br></code></pre></td></tr></table></figure>
+
+<p>3.一个类中定义的多个构造器，彼此构成重载</p>
+<p>4.一旦我们显式的定义了类的构造器之后，系统就不再提供默认的空参构造器</p>
+<p>5.一个类中，至少会有一个构造器</p>
+<p>6.方法名和类名相同</p>
+<h2 id="13"><a href="#13" class="headerlink" title="13"></a>13</h2><h3 id="属性赋值的先后顺序"><a href="#属性赋值的先后顺序" class="headerlink" title="属性赋值的先后顺序"></a>属性赋值的先后顺序</h3><p>1.默认初始化</p>
+<p>2.显式初始化</p>
+<p>3.构造器中赋值</p>
+<p>4.通过”对象.方法”或”对象.属性”的方式赋值</p>
+<p>以上操作的先后顺序：1234</p>
+<h2 id="14"><a href="#14" class="headerlink" title="14"></a>14</h2><h3 id="javaBean：指符合如下标准的Java类"><a href="#javaBean：指符合如下标准的Java类" class="headerlink" title="javaBean：指符合如下标准的Java类"></a>javaBean：指符合如下标准的Java类</h3><p>类是公共的</p>
+<p>有一个无参的公共的构造器</p>
+<p>有属性，且有对应的get、set方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Customer</span> </span>&#123;<br>    <br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> id;<br>    <span class="hljs-keyword">private</span> String name;<br>    <br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Customer</span><span class="hljs-params">()</span> </span>&#123;<br>        <br>    &#125;<br>  <br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setId</span><span class="hljs-params">(<span class="hljs-keyword">int</span> i)</span> </span>&#123;<br>        id = i;<br>    &#125;<br>    <br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getId</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> id;<br>    &#125;<br>    <br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setName</span><span class="hljs-params">(String n)</span> </span>&#123;<br>        name = n;<br>    &#125;<br>    <br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getName</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> name;<br>    &#125;<br>  <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="15"><a href="#15" class="headerlink" title="15"></a>15</h2><h3 id="UML类图"><a href="#UML类图" class="headerlink" title="UML类图"></a>UML类图</h3><table>
+<thead>
+<tr>
+<th align="left">Account</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">-balance:double</td>
+</tr>
+<tr>
+<td align="left">+<u>Account(init_balance:double)</u><br />+getBalance():double<br />+deposit(amt:double)<br />+withdraw(amt:double)</td>
+</tr>
+</tbody></table>
+<p>+表示public类型，-表示private类型，#表示protected类型</p>
+<h4 id="类名"><a href="#类名" class="headerlink" title="类名"></a>类名</h4><p>Account</p>
+<h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><p>:前是属性名 :后是属性的类型</p>
+<h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><p>写法：方法的类型(+、-)方法名(参数名:参数类型):返回值类型</p>
+<p>若方法有下划线表示为构造器</p>
+<h2 id="16"><a href="#16" class="headerlink" title="16"></a>16</h2><h3 id="this关键字的使用"><a href="#this关键字的使用" class="headerlink" title="this关键字的使用"></a>this关键字的使用</h3><p>1.this可以用来修饰：属性、方法、构造器</p>
+<p>2.this修饰属性和方法：</p>
+<p>   this理解为：当前对象</p>
+<p>   在类的方法/构造器中，我们可以使用”this.属性”或”this.方法”的方式，调用当前对象的属性或方法/当前正在创建的对象属性或方法。但是，通常情况下，我们都选择省略”this.”。特殊情况下，如果方法/构造器的形参和类的属性重名，我们必须显式的使用”this.变量”的方式，表明此变量是属性，而非形参</p>
+<p>3.this调用构造器</p>
+<p>   我们在类的构造器中，可以显示的使用”this(形参列表)”方式，调用本类中指定的其他构造器</p>
+<p>   构造器中不能通过”this(形参列表)”方式调用自己</p>
+<p>   如果一个类中有n个构造器，则最多有n-1个构造器中使用了”this(形参列表)”</p>
+<p>   规定：”this(形参列表)”必须声明在当前构造器的首行</p>
+<p>   构造器内部，最多只能声明一个”this(形参列表)”，用来调用其他的构造器</p>
+<h2 id="21"><a href="#21" class="headerlink" title="21"></a>21</h2><h3 id="package关键字的使用"><a href="#package关键字的使用" class="headerlink" title="package关键字的使用"></a>package关键字的使用</h3><p>1.为了更好的实现项目类的管理，提出包的概念</p>
+<p>2.使用package声明类或借口所属的包，声明在源文件的首行</p>
+<p>3.属于标识符，遵循标识符的命名规范、规则、“见名知意”</p>
+<p>4.每”.”一次，就代表一层文件目录</p>
+<p>补充：同一个包下，不能命名同名的接口、类</p>
+<p>​           不同的包下，可以命名同名的接口、类</p>
+<h2 id="23"><a href="#23" class="headerlink" title="23"></a>23</h2><h3 id="import关键字的使用"><a href="#import关键字的使用" class="headerlink" title="import关键字的使用"></a>import关键字的使用</h3><p>1.在源文件中显式的使用import结构导入指定包下的类、接口</p>
+<p>2.声明在包的声明和类的声明之间</p>
+<p>3.如果需要导入多个结构，则并列写出即可</p>
+<p>4.可以使用”xxx.*”的方式，表示可以导入xxx包下的所有结构。但是如果使用的是xxx子包下的结构，则仍需要显式导入</p>
+<p>5.如果使用的类或接口是java.lang包下定义的，则可以省略import结构</p>
+<p>6.如果使用的类或接口是本包下定义的，则可以省略import结构</p>
+<p>7.如果在源文件中，使用了不同包下的同名的类，则必须至少有一个类需要以全类名的方式显示(如com.atguigu.exer3.Account)</p>
+<p>8.import static:导入指定类或接口中的静态结构：属性或方法</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Java%E6%A0%B8%E5%BF%83%E5%9F%BA%E7%A1%8030days%E7%AC%94%E8%AE%B0/">Java核心基础30days笔记</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/03/05/day11/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Java核心基础day11笔记</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/03/03/day09/">
+                        <span class="hidden-mobile">Java核心基础day09笔记</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

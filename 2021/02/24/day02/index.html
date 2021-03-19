@@ -18,7 +18,7 @@
   <meta name="author" content="Swish">
   <meta name="keywords" content="">
   
-  <title>Java核心基础day01笔记 - Hexo</title>
+  <title>Java核心基础day02笔记 - Hexo</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Java核心基础day01笔记">
+            <span class="h2" id="subtitle" title="Java核心基础day02笔记">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-02-23 00:00" pubdate>
-        February 23, 2021
+      <time datetime="2021-02-24 00:00" pubdate>
+        February 24, 2021
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      225 字
+      838 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2
+      10
        分钟
     </span>
   
@@ -233,20 +233,53 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Java核心基础day01笔记</h1>
+            <h1 style="display: none">Java核心基础day02笔记</h1>
             
             <div class="markdown-body">
-              <h2 id="17"><a href="#17" class="headerlink" title="17"></a>17</h2><p>.java文件(源文件)通过javac编译成.class文件(字节码文件)通过java运行出结果(不需要后缀.class)</p>
-<p>源文件名必须和源文件公共类名相同</p>
-<h2 id="21"><a href="#21" class="headerlink" title="21"></a>21</h2><p>文档注释可以被JDK提供的工具javadoc所解析，生成一套以网页文件形式体现的该程序的说明文档</p>
-<p>javadoc -d mydoc -author -version HelloWorld.java</p>
-<p>mydoc：文件夹名</p>
-<p>多行注释不可嵌套</p>
-<h2 id="24"><a href="#24" class="headerlink" title="24"></a>24</h2><p>在一个java源文件中可以声明多个class，但是最多只能有一个class声明为public，此类名与源文件名必须相同</p>
-<p>程序的入口是main()方法，格式是固定的(args可变 []也可放在args后面)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span><br></code></pre></td></tr></table></figure>
+              <h2 id="01"><a href="#01" class="headerlink" title="01"></a>01</h2><p>JDK = JRE + Java开发工具(javac,java,javadoc…)</p>
+<p>JRE = JVM + Java核心类库</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/*</span><br><span class="hljs-comment">创建如下的类，使得运行的话可以输出：</span><br><span class="hljs-comment">姓名：习大大</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">性别：男</span><br><span class="hljs-comment">家庭住址：北京中南海</span><br><span class="hljs-comment">*/</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">x</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;姓名：习大大&quot;</span>);<br>        System.out.println();<br>        System.out.println(<span class="hljs-string">&quot;性别：男&quot;</span>);<br>      	System.out.print(<span class="hljs-string">&quot;家庭住址：北京中南海&quot;</span>);<br>      	<span class="hljs-comment">//System.out.print(&quot;姓名：习大大\n\n性别：男\n家庭住址：北京中南海&quot;);</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p>编译以后，会生成一个或多个字节码文件。字节码文件名与java源文件中类名相同，有几个类就有几个字节码文件</p>
+<h2 id="02"><a href="#02" class="headerlink" title="02"></a>02</h2><p>Pascal之父Nicklaus Wirth: “Algorithms + Data Structures=Programs”</p>
+<p>健壮性：1.去除了C语言中的指针 2.自动的垃圾回收机制(仍然会出现内存溢出、内存泄漏)</p>
+<h2 id="05"><a href="#05" class="headerlink" title="05"></a>05</h2><p>凡是自己可以起名字的地方都叫标识符</p>
+<h2 id="08"><a href="#08" class="headerlink" title="08"></a>08</h2><p>变量都定义在其作用域(大括号)内。在作用域内，它是有效的。</p>
+<h2 id="09"><a href="#09" class="headerlink" title="09"></a>09</h2><p>基本数据类型：</p>
+<p>整形：byte \ short \ int \ long</p>
+<p>浮点数：float \ double</p>
+<p>字符型：char</p>
+<p>布尔型：boolean</p>
+<p>引用数据类型：</p>
+<p>类(class)</p>
+<p>接口(interface)</p>
+<p>数组(array)</p>
+<h2 id="10"><a href="#10" class="headerlink" title="10"></a>10</h2><p>声明long型变量，必须以”l”或”L”结尾</p>
+<h2 id="11"><a href="#11" class="headerlink" title="11"></a>11</h2><p>float和double中aEb是a*(10^b)</p>
+<p> 声明float型变量，必须以”f”或”F”结尾</p>
+<p>通常，声明浮点型变量时，使用double型</p>
+<h2 id="12"><a href="#12" class="headerlink" title="12"></a>12</h2><p>字符型：char(1字符=2字节) 声明时通常使用一对’a’ 可声明转义字符、unicode</p>
+<h2 id="15-16-17-18"><a href="#15-16-17-18" class="headerlink" title="15 16 17 18"></a>15 16 17 18</h2><p>基本数据类型之间的运算规则(不包含boolean)：</p>
+<p>自动类型提升：</p>
+<p>当容量小的数据类型的变量与容量大的数据类型的变量做运算时，结果自动提升为容量大的数据类型</p>
+<p>说明：这里容量大小指表示数的范围大小，不是占字节多少</p>
+<p>byte、char、short(任意两者或同种做运算结果是int) &lt; int &lt; long &lt; float &lt; double</p>
+<p>java在做运算时，如果操作数均在int范围内，那么一律在int的空间内运算</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">long</span> l = <span class="hljs-number">123123</span>;<br><span class="hljs-comment">//不报错，因为123123是int型，自动类型提升成long</span><br><span class="hljs-keyword">long</span> l = <span class="hljs-number">21332423235234123</span>;<br><span class="hljs-comment">//报错，因为21332423235234123是long型</span><br><span class="hljs-keyword">byte</span> b = <span class="hljs-number">12</span>;<br><span class="hljs-keyword">byte</span> b1 = b + <span class="hljs-number">1</span>;<br><span class="hljs-comment">//报错，b+1是int型，因为1被看作常量；整型常量，默认类型为int型；浮点型常量，默认类型为double型</span><br></code></pre></td></tr></table></figure>
+
+<p>强制类型转换(自动类型提升运算的逆运算)：</p>
+<p>需要使用强转符(type)</p>
+<p>可能导致精度损失</p>
+<h2 id="19"><a href="#19" class="headerlink" title="19"></a>19</h2><p>声明String类型变量时，使用一对”a”，可为空</p>
+<p>String和8种基本数据类型变量只能做连接运算，结果仍然是String类型</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span> number = <span class="hljs-number">1001</span>;<br>String numberStr = <span class="hljs-string">&quot;学号：&quot;</span>;<br>String info = numberStr + number;<br><span class="hljs-comment">//输出学号：1001</span><br><span class="hljs-keyword">boolean</span> b1 = ture;<br>String info1 = info + b1;<br><span class="hljs-comment">//输出学号：1001true</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="20-21"><a href="#20-21" class="headerlink" title="20 21"></a>20 21</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">char</span> c = <span class="hljs-string">&#x27;a&#x27;</span>;<span class="hljs-comment">//97</span><br><span class="hljs-keyword">int</span> num = <span class="hljs-number">10</span>;<br>String str = <span class="hljs-string">&quot;hello&quot;</span>;<br>System.out.println(c + num + str);<span class="hljs-comment">//107hello</span><br>System.out.println(c + str + num);<span class="hljs-comment">//ahello10</span><br>System.out.println(c + (str + num));<span class="hljs-comment">//ahello10</span><br>System.out.println((c + num) + str);<span class="hljs-comment">//107hello</span><br>System.out.println(str + num + c);<span class="hljs-comment">//hello10a</span><br>System.out.println(<span class="hljs-string">&#x27;*&#x27;</span> + <span class="hljs-string">&#x27;\t&#x27;</span> + <span class="hljs-string">&#x27;*&#x27;</span>);<span class="hljs-comment">//93</span><br>System.out.println(<span class="hljs-string">&#x27;*&#x27;</span> + <span class="hljs-string">&quot;\t&quot;</span> + <span class="hljs-string">&#x27;*&#x27;</span>);<span class="hljs-comment">//*		*</span><br>System.out.println(<span class="hljs-string">&#x27;*&#x27;</span> + <span class="hljs-string">&#x27;\t&#x27;</span> + <span class="hljs-string">&quot;*&quot;</span>);<span class="hljs-comment">//51*</span><br>System.out.println(<span class="hljs-string">&#x27;*&#x27;</span> + (<span class="hljs-string">&#x27;\t&#x27;</span> + <span class="hljs-string">&quot;*&quot;</span>));<span class="hljs-comment">//*		*</span><br>String str2 = <span class="hljs-number">3.5f</span> + <span class="hljs-string">&quot;&quot;</span>;<span class="hljs-comment">//不报错</span><br>System.out.println(str2);<span class="hljs-comment">//3.5</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="23"><a href="#23" class="headerlink" title="23"></a>23</h2><p>正数的原码、反码、补码都相同</p>
+<p>原码：直接将一个数值换成二进制数，最高位是符号位置</p>
+<p>负数的反码：是对原码按位取反，最高位(符号位)为1不变</p>
+<p>负数的补码：其反码+1</p>
+<p>计算机底层都以补码的方式来存储数据</p>
 
             </div>
             <hr>
@@ -281,15 +314,21 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/02/24/day02/">
+                      <a href="/2021/02/25/day03/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Java核心基础day02笔记</span>
+                        <span class="hidden-mobile">Java核心基础day03笔记</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2021/02/23/day01/">
+                        <span class="hidden-mobile">Java核心基础day01笔记</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>

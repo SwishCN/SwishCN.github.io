@@ -1,0 +1,591 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Swish">
+  <meta name="keywords" content="">
+  
+  <title>Java核心基础day14笔记 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Swish's Blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Java核心基础day14笔记">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-03-08 00:00" pubdate>
+        March 8, 2021
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.7k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      18
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Java核心基础day14笔记</h1>
+            
+            <div class="markdown-body">
+              <h2 id="06"><a href="#06" class="headerlink" title="06"></a>06</h2><h3 id="static关键字的使用"><a href="#static关键字的使用" class="headerlink" title="static关键字的使用"></a>static关键字的使用</h3><p>1.static：静态的</p>
+<p>2.static可以用来修饰：属性、方法、代码块、内部类</p>
+<p>3.使用static修饰属性：静态变量（或类变量）</p>
+<p>​    3.1属性，按是否使用static修饰，又分为：静态属性vs非静态属性（实例变量）</p>
+<p>​        实例变量：我们创建了类的多个对象，每个对象都独立的拥有一套类中的非静态属性。当修改其中一个对象中的非静态属性时，不会        导致其他对象中同样的属性值的修改</p>
+<p>​        静态变量：我们创建了类的多个对象，多个对象共享同一个静态变量。当通过某一个对象修改静态变量时，会导致其他对象调用此静        态变量时，是修改过了的</p>
+<p>​    3.2static修饰属性的其他说明：</p>
+<p>​        1⃣️静态变量随着类的加载而加载。可以通过”类.静态变量”的方式进行调用</p>
+<p>​        2⃣️静态变量的加载要早于对象的创建</p>
+<p>​        3⃣️由于类只会加载一次，则静态变量在内存中也只会存在一份：存在方法区的静态域中</p>
+<p>​        4⃣️列调用行</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>类变量</th>
+<th>实例变量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>类</td>
+<td>yes</td>
+<td>no</td>
+</tr>
+<tr>
+<td>对象</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+</tbody></table>
+<p>​    3.3静态属性举例：System.out;Math.PI;</p>
+<p>4.使用static修饰方法：静态方法</p>
+<p>​    1.随着类的加载而加载，可以通过”类.静态方法”的方式进行调用</p>
+<p>​    2.列调用行</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>静态方法</th>
+<th>非静态方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>类</td>
+<td>yes</td>
+<td>no</td>
+</tr>
+<tr>
+<td>对象</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+</tbody></table>
+<p>​    3.静态方法中，只能调用静态的方法或属性</p>
+<p>​       非静态方法中，既可以调用非静态的方法或属性，也可以调用静态的方法或属性</p>
+<p>5.static注意点：</p>
+<p>​    5.1在静态的方法内，不能使用this关键字、super关键字</p>
+<p>​    5.2关于静态属性和静态方法的使用，大家都从生命周期的角度去解释</p>
+<p>6.Q：开发中，如何确定一个属性是否声明为static的？</p>
+<p>   A：属性是可以被多个对象所共享的，不会随着对象的不同而不同的</p>
+<p>​         类中的常量也常常声明为static</p>
+<p>   Q：开发中，如何确定一个方法是否声明为static的？</p>
+<p>   A：操作静态属性的方法，通常设置为static的</p>
+<p>​         工具类中的方法，习惯上声明为static的。比如：Math、Arrays、Collections</p>
+<h2 id="15-16"><a href="#15-16" class="headerlink" title="15 16"></a>15 16</h2><h3 id="单例设计模式"><a href="#单例设计模式" class="headerlink" title="单例设计模式"></a>单例设计模式</h3><p>1.所谓类的单例设计模式，就是采取一定的方法保证在某个软件系统中，对某个类只能存在一个对象实例</p>
+<p>2.如何实现？</p>
+<p>   饿汉式 vs 懒汉式</p>
+<p>3.区分饿汉式 和 懒汉式</p>
+<p>   饿汉式：</p>
+<pre><code>   坏处：对象加载时间过长
+   
+   好处：饿汉式是线程安全的
+</code></pre>
+<p>   懒汉式：</p>
+<pre><code>   好处：延迟对象的创建
+   
+   目前的写法坏处：线程不安全。---&gt;到多线程内容时，再修改
+</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//单例模式的饿汉式实现</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SingletonTest1</span> </span>&#123;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br><span class="hljs-comment">//		Bank bank1 = new Bank();</span><br><span class="hljs-comment">//		Bank bank2 = new Bank();</span><br>		<br>		Bank bank1 = Bank.getInstance();<br>		Bank bank2 = Bank.getInstance();<br>		<br>		System.out.println(bank1 == bank2);<br>	&#125;<br>&#125;<br><br><span class="hljs-comment">//饿汉式</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Bank</span></span>&#123;<br>	<br>	<span class="hljs-comment">//1.私有化类的构造器</span><br>	<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">Bank</span><span class="hljs-params">()</span></span>&#123;<br>		<br>	&#125;<br>	<br>	<span class="hljs-comment">//2.内部创建类的对象</span><br>	<span class="hljs-comment">//4.要求此对象也必须声明为静态的</span><br>	<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Bank instance = <span class="hljs-keyword">new</span> Bank();<br>	<br>	<span class="hljs-comment">//3.提供公共的静态的方法，返回类的对象</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Bank <span class="hljs-title">getInstance</span><span class="hljs-params">()</span></span>&#123;<br>		<span class="hljs-keyword">return</span> instance;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//单例模式的懒汉式实现</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SingletonTest2</span> </span>&#123;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		<br>		Order order1 = Order.getInstance();<br>		Order order2 = Order.getInstance();<br>		<br>		System.out.println(order1 == order2);<br>		<br>	&#125;<br>&#125;<br><br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Order</span></span>&#123;<br>	<br>	<span class="hljs-comment">//1.私有化类的构造器</span><br>	<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">Order</span><span class="hljs-params">()</span></span>&#123;<br>		<br>	&#125;<br>	<br>	<span class="hljs-comment">//2.声明当前类对象，没有初始化</span><br>	<span class="hljs-comment">//4.此对象也必须声明为static的</span><br>	<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Order instance = <span class="hljs-keyword">null</span>;<br>	<br>	<span class="hljs-comment">//3.声明public、static的返回当前类对象的方法</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Order <span class="hljs-title">getInstance</span><span class="hljs-params">()</span></span>&#123;<br>		<br>		<span class="hljs-keyword">if</span>(instance == <span class="hljs-keyword">null</span>)&#123;<br>			<br>			instance = <span class="hljs-keyword">new</span> Order();<br>			<br>		&#125;<br>		<span class="hljs-keyword">return</span> instance;<br>	&#125;<br>	<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="19"><a href="#19" class="headerlink" title="19"></a>19</h2><h3 id="main-方法的使用说明"><a href="#main-方法的使用说明" class="headerlink" title="main()方法的使用说明"></a>main()方法的使用说明</h3><p>1.main()方法作为程序的入口</p>
+<p>2.main()方法也是一个普通的静态方法</p>
+<p>3.main()方法可以作为我们与控制台交互的方式（之前：使用Scanner）</p>
+<h2 id="20"><a href="#20" class="headerlink" title="20"></a>20</h2><h3 id="类的成员之四：代码块（或初始化块）"><a href="#类的成员之四：代码块（或初始化块）" class="headerlink" title="类的成员之四：代码块（或初始化块）"></a>类的成员之四：代码块（或初始化块）</h3><p>1.代码块的作用：用来初始化类、对象</p>
+<p>2.代码块如果有修饰的话，只能使用static</p>
+<p>3.分类：静态代码块 vs 非静态代码块</p>
+<p>4.静态代码块</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">static</span> &#123;<br>    ...<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>​    内部可以有输出语句</p>
+<p>​    随着类的加载而执行,而且只执行一次</p>
+<p>​    作用：初始化类的信息</p>
+<p>​    如果一个类中定义了多个静态代码块，则按照声明的先后顺序执行</p>
+<p>​    静态代码块的执行要优先于非静态代码块的执行</p>
+<p>​    静态代码块内只能调用静态的属性、静态的方法，不能调用非静态的结构</p>
+<p>5.非静态代码块</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java">&#123;<br>    ...<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>​    内部可以有输出语句</p>
+<p>​    随着对象的创建而执行</p>
+<p>​    每创建一个对象，就执行一次非静态代码块</p>
+<p>​    作用：可以在创建对象时，对对象的属性等进行初始化</p>
+<p>​    如果一个类中定义了多个非静态代码块，则按照声明的先后顺序执行</p>
+<p>​    非静态代码块内可以调用静态的属性、静态的方法，或非静态的属性、非静态的方法</p>
+<h2 id="23"><a href="#23" class="headerlink" title="23"></a>23</h2><h3 id="对属性可以赋值的位置"><a href="#对属性可以赋值的位置" class="headerlink" title="对属性可以赋值的位置"></a>对属性可以赋值的位置</h3><p>1.默认初始化</p>
+<p>2.显式初始化</p>
+<p>3.构造器中初始化</p>
+<p>4.有了对象以后，可以通过“对象.属性”或“对象.方法”，进行赋值</p>
+<p>5.在代码块中赋值</p>
+<p>执行的先后顺序1-2/5(看谁先写谁后写)-3-4</p>
+<h2 id="24-25-26"><a href="#24-25-26" class="headerlink" title="24 25 26"></a>24 25 26</h2><h3 id="final关键字"><a href="#final关键字" class="headerlink" title="final关键字"></a>final关键字</h3><p>1.final可以用来修饰的结构：类、方法、变量</p>
+<p>2.final 用来修饰一个类:此类不能被其他类所继承</p>
+<p>   比如：String类、System类、StringBuffer类</p>
+<p>3.final 用来修饰方法：表明此方法不可以被重写</p>
+<p>   比如：Object类中getClass();</p>
+<p>4.final 用来修饰变量：此时的”变量”就称为是一个常量</p>
+<p>​    4.1final修饰属性：可以考虑赋值的位置有：显式初始化、代码块中初始化、构造器中初始化</p>
+<p>​    4.2final修饰局部变量：</p>
+<p>​         尤其是使用final修饰形参时，表明此形参是一个常量。当我们调用此方法时，给常量形参赋一个实参。一旦赋值以后，就只能在方法体内使用此形参，但不能进行重新赋值。</p>
+<p>​    static final 用来修饰属性：全局常量</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Java%E6%A0%B8%E5%BF%83%E5%9F%BA%E7%A1%8030days%E7%AC%94%E8%AE%B0/">Java核心基础30days笔记</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/03/09/day15/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Java核心基础day15笔记</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/03/07/day13/">
+                        <span class="hidden-mobile">Java核心基础day13笔记</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

@@ -18,7 +18,7 @@
   <meta name="author" content="Swish">
   <meta name="keywords" content="">
   
-  <title>Java核心基础day01笔记 - Hexo</title>
+  <title>Java核心基础day03笔记 - Hexo</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Java核心基础day01笔记">
+            <span class="h2" id="subtitle" title="Java核心基础day03笔记">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-02-23 00:00" pubdate>
-        February 23, 2021
+      <time datetime="2021-02-25 00:00" pubdate>
+        February 25, 2021
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      225 字
+      461 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2
+      6
        分钟
     </span>
   
@@ -233,20 +233,32 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Java核心基础day01笔记</h1>
+            <h1 style="display: none">Java核心基础day03笔记</h1>
             
             <div class="markdown-body">
-              <h2 id="17"><a href="#17" class="headerlink" title="17"></a>17</h2><p>.java文件(源文件)通过javac编译成.class文件(字节码文件)通过java运行出结果(不需要后缀.class)</p>
-<p>源文件名必须和源文件公共类名相同</p>
-<h2 id="21"><a href="#21" class="headerlink" title="21"></a>21</h2><p>文档注释可以被JDK提供的工具javadoc所解析，生成一套以网页文件形式体现的该程序的说明文档</p>
-<p>javadoc -d mydoc -author -version HelloWorld.java</p>
-<p>mydoc：文件夹名</p>
-<p>多行注释不可嵌套</p>
-<h2 id="24"><a href="#24" class="headerlink" title="24"></a>24</h2><p>在一个java源文件中可以声明多个class，但是最多只能有一个class声明为public，此类名与源文件名必须相同</p>
-<p>程序的入口是main()方法，格式是固定的(args可变 []也可放在args后面)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span><br></code></pre></td></tr></table></figure>
+              <h2 id="03"><a href="#03" class="headerlink" title="03"></a>03</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">Char c2=<span class="hljs-number">97</span>;<span class="hljs-comment">//不报错</span><br></code></pre></td></tr></table></figure>
 
-<p>编译以后，会生成一个或多个字节码文件。字节码文件名与java源文件中类名相同，有几个类就有几个字节码文件</p>
+<h2 id="05"><a href="#05" class="headerlink" title="05"></a>05</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span> num1 = <span class="hljs-number">12</span>;<br><span class="hljs-keyword">int</span> num2 = <span class="hljs-number">5</span>;<br><span class="hljs-keyword">double</span> result5 = num1 / (num2 + <span class="hljs-number">0.0</span>);<span class="hljs-comment">//2.4</span><br><span class="hljs-keyword">double</span> result5 = (num1 + <span class="hljs-number">0.0</span>) / num2;<span class="hljs-comment">//2.4</span><br><span class="hljs-keyword">double</span> result6 = (<span class="hljs-keyword">double</span>)num1 / num2;<span class="hljs-comment">//2.4</span><br><span class="hljs-keyword">double</span> result6 = num1 / (<span class="hljs-keyword">double</span>)num2;<span class="hljs-comment">//2.4</span><br></code></pre></td></tr></table></figure>
+
+<p>%取余运算结果的符号与被模数的符号相同</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">short</span> s1 = <span class="hljs-number">10</span>;<br>s1++;<span class="hljs-comment">//不报错，自增1不会改变本身变量的数据类型</span><br><span class="hljs-keyword">byte</span> bb1 = <span class="hljs-number">127</span>;<br>bb1++;<br>System.out.println(<span class="hljs-string">&quot;bb1 =&quot;</span> + bb1);<span class="hljs-comment">//-128</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="07"><a href="#07" class="headerlink" title="07"></a>07</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment">练习：随意给出一个三位数的整数，打印显示它的个位数，十位数，百位数的值。</span><br><span class="hljs-comment">格式如下：</span><br><span class="hljs-comment">数字153的情况如下：</span><br><span class="hljs-comment">个位数：1</span><br><span class="hljs-comment">十位数：5</span><br><span class="hljs-comment">百位数：3</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">*/</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AriExer</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> num = <span class="hljs-number">187</span>;<br>        <span class="hljs-keyword">int</span> bai = num / <span class="hljs-number">100</span>;<br>        <span class="hljs-keyword">int</span> shi = num % <span class="hljs-number">100</span> / <span class="hljs-number">10</span>;<br>        <span class="hljs-keyword">int</span> ge = num % <span class="hljs-number">10</span>;<br>        System.out.println(<span class="hljs-string">&quot;百位为：&quot;</span> + bai);<br>        System.out.println(<span class="hljs-string">&quot;十位为：&quot;</span> + shi);<br>        System.out.println(<span class="hljs-string">&quot;个位为：&quot;</span> + ge);<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="09"><a href="#09" class="headerlink" title="09"></a>09</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">short</span> s1 = <span class="hljs-number">10</span>;<br>s1 = s1 + <span class="hljs-number">2</span>;<span class="hljs-comment">//编译失败</span><br>s1 += <span class="hljs-number">2</span>;<span class="hljs-comment">//不会改变变量本身数据类型</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="10"><a href="#10" class="headerlink" title="10"></a>10</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span> n1 = <span class="hljs-number">10</span>;<br>n1 += (n1++) + (++n);<span class="hljs-comment">//10 + 10 + 12 = 32</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="11"><a href="#11" class="headerlink" title="11"></a>11</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">boolean</span> b1 = <span class="hljs-keyword">true</span>;<br><span class="hljs-keyword">boolean</span> b2 = <span class="hljs-keyword">false</span>;<br>System.out.println(b2 == b1);<span class="hljs-comment">//false</span><br>System.out.println(b2 = b1);<span class="hljs-comment">//true</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="13"><a href="#13" class="headerlink" title="13"></a>13</h2><p>逻辑运算符操作的都是boolean类型的变量</p>
+<p>区分&amp;(逻辑与)和&amp;&amp;(短路与)：当符号左边是false时，&amp;继续执行符号右边的运算，&amp;&amp;不再执行符号右边的运算</p>
+<p>区分|(逻辑或)和||(短路或)：当符号左边是ture时，|继续执行符号右边的运算，而||不再执行符号右边的运算</p>
+<p>开发中，推荐使用短路</p>
+<h2 id="15"><a href="#15" class="headerlink" title="15"></a>15</h2><p>位运算是直接对整数的二进制进行运算</p>
+<p>‘’&lt;&lt;’：在一定范围内，每向左移1位，相当于*2</p>
+<p>‘&gt;&gt;’：在一定范围内，每向右移1位，相当于/2</p>
+<h2 id="19"><a href="#19" class="headerlink" title="19"></a>19</h2><p>如果程序既可以使用三元运算符，又可以使用if-self结构，那么优先选择三元运算符。原因：简介、执行效率高</p>
 
             </div>
             <hr>
@@ -281,15 +293,21 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/02/24/day02/">
+                      <a href="/2021/02/26/day04/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Java核心基础day02笔记</span>
+                        <span class="hidden-mobile">Java核心基础day04笔记</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2021/02/24/day02/">
+                        <span class="hidden-mobile">Java核心基础day02笔记</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>

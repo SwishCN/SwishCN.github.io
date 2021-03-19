@@ -18,7 +18,7 @@
   <meta name="author" content="Swish">
   <meta name="keywords" content="">
   
-  <title>Java核心基础day01笔记 - Hexo</title>
+  <title>Java核心基础day12笔记 - Hexo</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Java核心基础day01笔记">
+            <span class="h2" id="subtitle" title="Java核心基础day12笔记">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-02-23 00:00" pubdate>
-        February 23, 2021
+      <time datetime="2021-03-06 00:00" pubdate>
+        March 6, 2021
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      225 字
+      1.4k 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2
+      14
        分钟
     </span>
   
@@ -233,20 +233,58 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Java核心基础day01笔记</h1>
+            <h1 style="display: none">Java核心基础day12笔记</h1>
             
             <div class="markdown-body">
-              <h2 id="17"><a href="#17" class="headerlink" title="17"></a>17</h2><p>.java文件(源文件)通过javac编译成.class文件(字节码文件)通过java运行出结果(不需要后缀.class)</p>
-<p>源文件名必须和源文件公共类名相同</p>
-<h2 id="21"><a href="#21" class="headerlink" title="21"></a>21</h2><p>文档注释可以被JDK提供的工具javadoc所解析，生成一套以网页文件形式体现的该程序的说明文档</p>
-<p>javadoc -d mydoc -author -version HelloWorld.java</p>
-<p>mydoc：文件夹名</p>
-<p>多行注释不可嵌套</p>
-<h2 id="24"><a href="#24" class="headerlink" title="24"></a>24</h2><p>在一个java源文件中可以声明多个class，但是最多只能有一个class声明为public，此类名与源文件名必须相同</p>
-<p>程序的入口是main()方法，格式是固定的(args可变 []也可放在args后面)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span><br></code></pre></td></tr></table></figure>
+              <h2 id="09-10"><a href="#09-10" class="headerlink" title="09 10"></a>09 10</h2><h3 id="方法的重写-override-overwrite"><a href="#方法的重写-override-overwrite" class="headerlink" title="方法的重写(override/overwrite)"></a>方法的重写(override/overwrite)</h3><p>1.重写：子类继承父类以后，可以对父类中同名同参数的方法，进行覆盖操作</p>
+<p>2.应用：重写以后，当创建子类对象以后，通过子类对象调用子父类中同名同参数的方法时，实际执行的是子类重写父类的方法</p>
+<p>3.重写的规定：</p>
+<p>方法的声明：</p>
+<p>权限修饰符 返回值类型 方法名(形参列表) {</p>
+<p>​    //方法体</p>
+<p>}</p>
+<p>约定俗成：</p>
+<p>子类中叫重写的方法，父类中叫被重写的方法</p>
+<p>1⃣️子类重写的方法的方法名和形参列表与父类被重写的方法名和形参列表相同</p>
+<p>2⃣️子类重写的方法的权限修饰符不小于父类被重写的方法的权限修饰符</p>
+<p>特殊情况：子类不能重写父类声明为private权限的方法</p>
+<p>3⃣️返回值类型：</p>
+<p>父类被重写的方法的返回值类型是void，则子类重写的方法的返回值类型只能是void</p>
+<p>父类被重写的方法的返回值类型是A类型，则子类重写的方法的返回值类型可以是A类或A类的子类</p>
+<p>父类被重写的方法的返回值类型是基本数据类型，则子类重写的方法的返回值类型必须是相同的基本数据类型</p>
+<p>4⃣️子类重写的方法抛出的异常类型不大于父类被重写的方法抛出的异常类型</p>
+<p>子类和父类中的同名同参数的方法要么都声明为非static的（考虑重写），要么都声明为static的（不是重写）</p>
+<h2 id="13-14"><a href="#13-14" class="headerlink" title="13 14"></a>13 14</h2><h3 id="super关键字的使用"><a href="#super关键字的使用" class="headerlink" title="super关键字的使用"></a>super关键字的使用</h3><p>1.super理解为：父类的</p>
+<p>2.super可以用来调用：属性、方法、构造器</p>
+<p>3.super的使用</p>
+<p>​    3.1我们可以在子类的方法或构造器中，通过使用”super.属性”或”super.方法”的方式，显示的调用父类中声明的属性或方法。但是，通常情况下，我们习惯省略”super.”</p>
+<p>​    3.2特殊情况：当子类和父类中定义了同名的属性时，我们要想在子类中调用父类中声明的属性，则必须显式的使用”super.属性”的方式，表明调用的是父类中声明的属性</p>
+<p>​    3.3特殊情况：当子类重写了父类中的方法以后，我们想在子类的方法中调用父类中被重写的方法时，则必须显式的使用”super.属性”的方式，表明调用的是父类中被重写的方法</p>
+<p>​    super从父类向子类开始找，this从子类向父类开始找</p>
+<p>4.super调用构造器</p>
+<p>​    4.1我们可以在子类的构造器中显示的使用”super(形参列表)”的方式，调用父类中声明的指定的构造器</p>
+<p>​    4.2”super(形参列表)”的使用，必须声明在子类构造器的首行</p>
+<p>​    4.3我们在类的构造器中，针对于”this(形参列表)”或”super(形参列表)”只能二选一，不能同时出现</p>
+<p>​    4.4在构造器的首行，没有显式的声明”this(形参列表)”或”super(形参列表)”，则默认调用的是父类中空参的构造器：super()</p>
+<p>​    4.5在类的多个构造器中，至少有一个类的构造器中使用了”super(形参列表)”，调用父类中的构造器</p>
+<h2 id="15"><a href="#15" class="headerlink" title="15"></a>15</h2><h3 id="子类对象实例化的全过程"><a href="#子类对象实例化的全过程" class="headerlink" title="子类对象实例化的全过程"></a>子类对象实例化的全过程</h3><p>1.从结果上来看：子类继承父类以后，就获取了父类中声明的属性或方法。创建子类的对象，在堆空间中，就会加载所有父类中声明的属性</p>
+<p>2.从过程上来看：当我们通过子类的构造器创建子类对象时，我们一定会直接或间接的调用其父类的构造器，进而调用父类的父类的构造器，直到调用了java.lang.Object类中空参的构造器为止。正因为加载过所有的父类的结构，所以才可以看到内存中有父类的结构，子类对象才可以考虑进行调用</p>
+<p>明确：虽然创建子类对象时，调用了父类构造器，但是自始至终就创建过一个对象，即为new的子类对象</p>
+<h2 id="17-18-19"><a href="#17-18-19" class="headerlink" title="17 18 19"></a>17 18 19</h2><h3 id="面向对象特征之三：多态性"><a href="#面向对象特征之三：多态性" class="headerlink" title="面向对象特征之三：多态性"></a>面向对象特征之三：多态性</h3><p>1.理解多态性：可以理解为一个事物的多种形态</p>
+<p>2.何为多态性：</p>
+<p>​    对象的多态性：父类的引用指向子类的对象（或子类的对象赋给父类的引用）</p>
+<p>3.多态的使用：虚拟方法调用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">Person p2 = <span class="hljs-keyword">new</span> Man();<br></code></pre></td></tr></table></figure>
 
-<p>编译以后，会生成一个或多个字节码文件。字节码文件名与java源文件中类名相同，有几个类就有几个字节码文件</p>
+<p>​    有了对象的多态性以后，我们在编译期，只能调用父类中声明的方法，但在运行期，我们实际执行的是子类重写父类的方法</p>
+<p>​    总结：编译看左边，运行看右边</p>
+<p>4.多态性的使用前提：</p>
+<p>​    1⃣️类的继承关系</p>
+<p>​    2⃣️方法的重写</p>
+<p>5.对象的多态性，只适用于方法，不适用于属性（编译和运行都看左边）</p>
+<h2 id="20"><a href="#20" class="headerlink" title="20"></a>20</h2><p>重载：在方法调用之前，编译器就已经确定了索要调用的方法，这称为“早绑定”或“静态绑定”</p>
+<p>多态：只有等方法调用的那一刻，解释运行器才会确定所要调用的具体方法，这称为“晚绑定”或“动态绑定”</p>
+<p>Bruce Eckel：“不要犯傻，如果它不是晚绑定，它就不是多态”</p>
 
             </div>
             <hr>
@@ -281,15 +319,21 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/02/24/day02/">
+                      <a href="/2021/03/07/day13/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Java核心基础day02笔记</span>
+                        <span class="hidden-mobile">Java核心基础day13笔记</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2021/03/05/day11/">
+                        <span class="hidden-mobile">Java核心基础day11笔记</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>

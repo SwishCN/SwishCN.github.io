@@ -18,7 +18,7 @@
   <meta name="author" content="Swish">
   <meta name="keywords" content="">
   
-  <title>Java核心基础day01笔记 - Hexo</title>
+  <title>Java核心基础day06笔记 - Hexo</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Java核心基础day01笔记">
+            <span class="h2" id="subtitle" title="Java核心基础day06笔记">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-02-23 00:00" pubdate>
-        February 23, 2021
+      <time datetime="2021-02-28 00:00" pubdate>
+        February 28, 2021
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      225 字
+      500 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2
+      6
        分钟
     </span>
   
@@ -233,20 +233,37 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Java核心基础day01笔记</h1>
+            <h1 style="display: none">Java核心基础day06笔记</h1>
             
             <div class="markdown-body">
-              <h2 id="17"><a href="#17" class="headerlink" title="17"></a>17</h2><p>.java文件(源文件)通过javac编译成.class文件(字节码文件)通过java运行出结果(不需要后缀.class)</p>
-<p>源文件名必须和源文件公共类名相同</p>
-<h2 id="21"><a href="#21" class="headerlink" title="21"></a>21</h2><p>文档注释可以被JDK提供的工具javadoc所解析，生成一套以网页文件形式体现的该程序的说明文档</p>
-<p>javadoc -d mydoc -author -version HelloWorld.java</p>
-<p>mydoc：文件夹名</p>
-<p>多行注释不可嵌套</p>
-<h2 id="24"><a href="#24" class="headerlink" title="24"></a>24</h2><p>在一个java源文件中可以声明多个class，但是最多只能有一个class声明为public，此类名与源文件名必须相同</p>
-<p>程序的入口是main()方法，格式是固定的(args可变 []也可放在args后面)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span><br></code></pre></td></tr></table></figure>
+              <h2 id="05"><a href="#05" class="headerlink" title="05"></a>05</h2><p>package名逆序，如com.alibaba.ai.util</p>
+<p>在包里的java文件第一行要写包的来源，如：package com.alibaba.ai.util;</p>
+<h2 id="06"><a href="#06" class="headerlink" title="06"></a>06</h2><p>Eclipse:Comment for created types</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Description</span></span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Swish Email:swh524457@163.com</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@version</span></span><br><span class="hljs-comment"> * <span class="hljs-doctag">@data</span> $&#123;date&#125;$&#123;time&#125;</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> */</span><br></code></pre></td></tr></table></figure>
 
-<p>编译以后，会生成一个或多个字节码文件。字节码文件名与java源文件中类名相同，有几个类就有几个字节码文件</p>
+<p>Eclipse:Comment for non-overriding methods</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Description</span></span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Swish Email:swh524457@163.com</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@data</span> $&#123;date&#125;$&#123;time&#125;</span><br><span class="hljs-comment"> * $&#123;tags&#125;</span><br><span class="hljs-comment"> */</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="07-08"><a href="#07-08" class="headerlink" title="07 08"></a>07 08</h2><p>数组属于引用数据类型的变量，而数组中的元素可以是任意数据类型</p>
+<p>创建数组会在内存中开辟一整块连续的空间</p>
+<p>数组的长度一旦确定，就不能修改</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span>[] ids;<span class="hljs-comment">//声明</span><br><span class="hljs-comment">//1.1静态初始化：数组的初始化和数组元素的赋值操作同时进行</span><br>ids = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[]&#123;<span class="hljs-number">1001</span>,<span class="hljs-number">1002</span>,<span class="hljs-number">1003</span>,<span class="hljs-number">1004</span>&#125;;<br><span class="hljs-comment">//1.2动态初始化：数组的初始化和数组元素的赋值操作分开进行</span><br>String[] names = <span class="hljs-keyword">new</span> String[<span class="hljs-number">5</span>];<br></code></pre></td></tr></table></figure>
+
+<h2 id="10"><a href="#10" class="headerlink" title="10"></a>10</h2><p>xxx.length</p>
+<h2 id="11"><a href="#11" class="headerlink" title="11"></a>11</h2><p>数组元素默认初始化值</p>
+<p>数组元素是整型：0</p>
+<p>数组元素是浮点型：0.0</p>
+<p>数组元素是char型：0（不是’0’）</p>
+<p>数组元素是boolean型：false</p>
+<p>数组元素是引用数据类型：null</p>
+<h2 id="12"><a href="#12" class="headerlink" title="12"></a>12</h2><p>内存的简化结构</p>
+<p>栈(stack)：局部变量</p>
+<p>堆(heap)：对象、数组（new出来的结构）</p>
+<p>方法区：常量池、静态域</p>
+<h2 id="15"><a href="#15" class="headerlink" title="15"></a>15</h2><p>eclipse按住shift+enter换下一行</p>
+<h2 id="16-19"><a href="#16-19" class="headerlink" title="16 19"></a>16 19</h2><h3 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//静态初始化。外层元素的初始化值为：地址值。内层元素的初始化值为：与一维数组初始化情况相同</span><br><span class="hljs-keyword">int</span>[][] arr1 = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span> [][]&#123;&#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>&#125;,&#123;<span class="hljs-number">4</span>,<span class="hljs-number">5</span>&#125;,&#123;<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>&#125;&#125;;<br><span class="hljs-comment">//动态初始化，可以不用写列。外层元素的初始化值为：null。内层元素的初始化值为：不能调用，否则报错</span><br><span class="hljs-keyword">int</span>[][] arr3 = <span class="hljs-keyword">new</span> String[<span class="hljs-number">3</span>][];<br>arr3[<span class="hljs-number">1</span>] = <span class="hljs-keyword">new</span> String[<span class="hljs-number">4</span>];<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span>[][] arr = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">4</span>][<span class="hljs-number">3</span>];<br><span class="hljs-comment">//[I@15db9742地址值</span><br>System.out.println(arr[<span class="hljs-number">0</span>]);<br><span class="hljs-comment">//0</span><br>System.out.println(arr[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>]);<br><span class="hljs-comment">//[[I@6d06d69c地址值</span><br>System.out.println(arr);<br><span class="hljs-keyword">double</span>[][] arr3 = <span class="hljs-keyword">new</span> <span class="hljs-keyword">double</span>[<span class="hljs-number">4</span>][];<br><span class="hljs-comment">//null，因为arr3[1]是一维数组，是引用类型，没有赋过值</span><br>System.out.println(arr3[<span class="hljs-number">1</span>]);<br><span class="hljs-comment">//报错</span><br>System.out.println(arr3[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>]);<br></code></pre></td></tr></table></figure>
 
             </div>
             <hr>
@@ -281,15 +298,21 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/02/24/day02/">
+                      <a href="/2021/03/01/day07/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Java核心基础day02笔记</span>
+                        <span class="hidden-mobile">Java核心基础day07笔记</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2021/02/27/day05/">
+                        <span class="hidden-mobile">Java核心基础day05笔记</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>

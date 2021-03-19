@@ -1,0 +1,530 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Swish">
+  <meta name="keywords" content="">
+  
+  <title>Java核心基础day08笔记 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Swish's Blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Java核心基础day08笔记">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-03-02 00:00" pubdate>
+        March 2, 2021
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.7k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      21
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Java核心基础day08笔记</h1>
+            
+            <div class="markdown-body">
+              <h2 id="03"><a href="#03" class="headerlink" title="03"></a>03</h2><h3 id="Java面向对象学习的三条主线"><a href="#Java面向对象学习的三条主线" class="headerlink" title="Java面向对象学习的三条主线"></a>Java面向对象学习的三条主线</h3><p>1.Java类及类的成员：属性、方法、构造器；代码块、内部类（后两者较少）</p>
+<p>2.面向对象的三大特征：封装性、继承性、多态性、（抽象性）</p>
+<p>3.其他关键字：this、super、static、final、abstract、interface、package、import等</p>
+<h2 id="04"><a href="#04" class="headerlink" title="04"></a>04</h2><p>“人把大象装进冰箱”</p>
+<p>面向过程：强调的是功能行为，以函数为最小单位，考虑怎么做</p>
+<p>1.把冰箱门打开</p>
+<p>2.抬起大象，塞进冰箱</p>
+<p>3.把冰箱门关闭</p>
+<p>面向对象：强调具备了功能的对象，以类/对象为最小单位，考虑谁来做</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs java">人 &#123;<br>    <br>    打开(冰箱) &#123;<br>        冰箱.开开();<br>    &#125;<br>    <br>    抬起(大象) &#123;<br>        大象.进入(冰箱);<br>    &#125;<br>    <br>    关闭(冰箱) &#123;<br>        冰箱.闭合();<br>    &#125;<br>    <br>&#125;<br><br>冰箱 &#123;<br>    <br>    开开() &#123;&#125;<br>    <br>    闭合() &#123;&#125;<br>    <br>&#125;<br><br>大象 &#123;<br>    <br>    进入 (冰箱) &#123;&#125;<br>    <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="05"><a href="#05" class="headerlink" title="05"></a>05</h2><p><strong>类(class)<strong>：是对一类事物的描述，是</strong>抽象的</strong>、概念上的定义</p>
+<p><strong>对象(object)<strong>：是</strong>实际存在</strong>的该事物的每个个体，因而也称为<strong>实例</strong>(instance)</p>
+<h2 id="06-07-08-09-10"><a href="#06-07-08-09-10" class="headerlink" title="06 07 08 09 10"></a>06 07 08 09 10</h2><h3 id="一、设计类，其实就是设计类的成员"><a href="#一、设计类，其实就是设计类的成员" class="headerlink" title="一、设计类，其实就是设计类的成员"></a>一、设计类，其实就是设计类的成员</h3><p>属性==成员变量==field==域、字段</p>
+<p>方法==成员方法==method</p>
+<p>创建类的对象==类的实例化==实例化类</p>
+<h3 id="二、类和对象的使用（面向对象思想落地的实现）"><a href="#二、类和对象的使用（面向对象思想落地的实现）" class="headerlink" title="二、类和对象的使用（面向对象思想落地的实现）"></a>二、类和对象的使用（面向对象思想落地的实现）</h3><p>1.创建类，设计类的成员</p>
+<p>2.创建类的对象</p>
+<p>3.通过“对象.属性”或“对象.方法”调用对象的结构</p>
+<h3 id="三、如果创建了一个类的多个对象，则每个对象都独立的拥有一套类的属性（非static的），意味着：如果我们修改一个对象的属性a，则不影响另外一个对象属性a的值"><a href="#三、如果创建了一个类的多个对象，则每个对象都独立的拥有一套类的属性（非static的），意味着：如果我们修改一个对象的属性a，则不影响另外一个对象属性a的值" class="headerlink" title="三、如果创建了一个类的多个对象，则每个对象都独立的拥有一套类的属性（非static的），意味着：如果我们修改一个对象的属性a，则不影响另外一个对象属性a的值"></a>三、如果创建了一个类的多个对象，则每个对象都独立的拥有一套类的属性（非static的），意味着：如果我们修改一个对象的属性a，则不影响另外一个对象属性a的值</h3><h3 id="四、对象的内存解析"><a href="#四、对象的内存解析" class="headerlink" title="四、对象的内存解析"></a>四、对象的内存解析</h3><p>堆（Heap）：存放对象实例（对象.属性）</p>
+<p>栈（Stack）：存储局部变量</p>
+<p>方法区（Method Area）：存储类信息、常量、静态变量、即时编译器编译后的代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//测试类</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PersonTest</span> </span>&#123;<br>    <br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-comment">//创建Person类的对象==类的实例化==实例化类</span><br>        Person p1 = <span class="hljs-keyword">new</span> Person();<br>        <span class="hljs-comment">//Scanner scan = new Scanner(System.in);</span><br>        <span class="hljs-comment">//调用对象的结构：属性、方法</span><br>        <span class="hljs-comment">//调用属性：“对象.属性”</span><br>        p1.name = <span class="hljs-string">&quot;Tom&quot;</span>;<br>        p1.isMale = <span class="hljs-keyword">true</span>;<br>        System.out.println(p1.name);<br>        <span class="hljs-comment">//调用方法：“对象.方法”</span><br>        p1.eat();<br>        p1.sleep();<br>        p1.talk(<span class="hljs-string">&quot;Chinese&quot;</span>);<br>        <br>        Person p2 = <span class="hljs-keyword">new</span> Person();<br>        <span class="hljs-comment">//null</span><br>        System.out.println(p2.name);<br>        <span class="hljs-comment">//flase</span><br>        System.out.println(p2.isMale);<br>        <br>        <span class="hljs-comment">//p1对象的地址赋值给p3，导致p1和p3指向了堆空间中的同一个对象实体</span><br>        Person p3 = p1;<br>        <span class="hljs-comment">//Tom</span><br>        System.out.println(p3.name);<br>        p3.age = <span class="hljs-number">10</span>;<br>        <span class="hljs-comment">//10</span><br>        System.out.println(p1.age);<br>    &#125;<br>    <br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> </span>&#123;<br>    <br>    <span class="hljs-comment">//属性</span><br>    String name;<br>    <span class="hljs-keyword">int</span> age = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">boolean</span> isMale;<br>   <br>    <span class="hljs-comment">//方法</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">eat</span><span class="hljs-params">()</span> </span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;人可以吃饭&quot;</span>);<br>    &#125;<br>    <br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sleep</span><span class="hljs-params">()</span> </span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;人可以睡觉&quot;</span>);<br>    &#125;<br>    <br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">talk</span><span class="hljs-params">(String language)</span> </span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;人可以说话，使用的是：&quot;</span> + language);<br>    &#125;<br>    <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="11-12"><a href="#11-12" class="headerlink" title="11 12"></a>11 12</h2><h3 id="属性（成员变量）vs-局部变量"><a href="#属性（成员变量）vs-局部变量" class="headerlink" title="属性（成员变量）vs  局部变量"></a>属性（成员变量）vs  局部变量</h3><p>相同点：</p>
+<p><strong>定义变量的格式：数据类型 变量名 = 变量值</strong></p>
+<p><strong>先声明，后使用</strong></p>
+<p><strong>都有其对应的作用域</strong></p>
+<p>不同点：</p>
+<p><strong>在类中声明的位置不同</strong></p>
+<p>属性：直接定义在类的一对{}中</p>
+<p>局部变量：声明在方法内、方法形参、代码块内、构造器形参、构造器内部的变量</p>
+<p><strong>关于权限修饰符的不同</strong></p>
+<p>属性：可以在声明属性时，指明其权限，使用权限修饰符</p>
+<p>常用的权限修饰符：private、public、缺省、protected（封装性）</p>
+<p>局部变量：不可以使用权限修饰符</p>
+<p><strong>默认初始化值的情况</strong></p>
+<p>属性：类的属性，根据其类型，都有默认初始化值</p>
+<p>整型（byte、short、int、long）：0</p>
+<p>浮点型（float、double）：0.0</p>
+<p>字符型（char）：0（或’\u0000’）</p>
+<p>布尔型（boolean）：false</p>
+<p>引用数据类型（类、数组、接口）：null</p>
+<p>局部变量：没有默认初始化值。意味着，我们在调用局部变量之前，一定要显式赋值。特别地，形参在调用时赋值</p>
+<h2 id="13-14"><a href="#13-14" class="headerlink" title="13 14"></a>13 14</h2><h3 id="类中方法的声明和使用"><a href="#类中方法的声明和使用" class="headerlink" title="类中方法的声明和使用"></a>类中方法的声明和使用</h3><p>方法：描述类应该具有的功能</p>
+<p>比如</p>
+<p>Math类：sqrt()\random()...</p>
+<p>Scanner类：next()\nextXxx()…</p>
+<p>Arrays类：sort()\binarySearch()\toString()\equals()…</p>
+<p>方法的声明：</p>
+<p>权限修饰符 返回值类型 方法名(形参列表) {</p>
+<p>​    方法体;</p>
+<p>}</p>
+<p>如果方法有返回值，则必须在方法声明时，指定返回值的类型。同时，方法中，需要使用return关键字来返回指定类型的变量或常量</p>
+<p>如果方法没有返回值，则方法声明时，使用void来表示。通常，没有返回值的方法中，就不需要使用return。但是，如果使用的话，只能”return;”表示结束此方法</p>
+<p>形参列表：方法可声明&gt;=0个形参</p>
+<p>格式：数据类型1 形参1, 数据类型2 形参2…</p>
+<p>方法的使用中，可以调用当前类的属性或方法</p>
+<p>方法中，不可以定义方法</p>
+<h2 id="21-22"><a href="#21-22" class="headerlink" title="21 22"></a>21 22</h2><h3 id="对象数组题目"><a href="#对象数组题目" class="headerlink" title="对象数组题目"></a>对象数组题目</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.atguigu.exer;<br><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * 对象数组题目：</span><br><span class="hljs-comment"> * 定义Student，包含三个属性：学号number(int)，年级state(int)，成绩score(int)</span><br><span class="hljs-comment"> * 创建20个学生对象，学号为1到20，年级和成绩都由随机数确定</span><br><span class="hljs-comment"> * 问题一：打印出3年级（state值为3）的学生信息</span><br><span class="hljs-comment"> * 问题二：使用冒泡排序按学生成绩排序，并遍历所有学生信息</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 提示：</span><br><span class="hljs-comment"> * 1）生成随机数：Math.random()，返回值类型double</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 此代码是对StudentTest.java的改进：将操作数组的功能封装到方法中</span><br><span class="hljs-comment"> */</span><br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">StudentTest1</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-comment">//声明Student类型的数组</span><br>        Student1[] stus = <span class="hljs-keyword">new</span> Student1[<span class="hljs-number">20</span>];<br>        <br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; stus.length; i++) &#123;<br>            <span class="hljs-comment">//给数组元素赋值</span><br>            stus[i] = <span class="hljs-keyword">new</span> Student1();<br>            <span class="hljs-comment">//给Student对象属性赋值</span><br>            stus[i].number = i + <span class="hljs-number">1</span>;<br>            <span class="hljs-comment">//年级：[1,6]</span><br>            stus[i].state = (<span class="hljs-keyword">int</span>)(Math.random() * (<span class="hljs-number">6</span> - <span class="hljs-number">1</span> + <span class="hljs-number">1</span>) + <span class="hljs-number">1</span>);<br>            <span class="hljs-comment">//成绩：[0,100]</span><br>            stus[i].score = (<span class="hljs-keyword">int</span>)(Math.random() * (<span class="hljs-number">100</span> - <span class="hljs-number">0</span> + <span class="hljs-number">1</span>) + <span class="hljs-number">0</span>);<br>        &#125;<br>        <br>        StudentTest1 test = <span class="hljs-keyword">new</span> StudentTest1();<br>        <br>        <span class="hljs-comment">//遍历学生数组</span><br>        test.print(stus);<br>          <br>        System.out.println(<span class="hljs-string">&quot;*****************&quot;</span>);<br>        <br>        <span class="hljs-comment">//问题一：打印3年级的学生信息</span><br>        test.searchState(stus, <span class="hljs-number">3</span>);<br>        <br>        System.out.println(<span class="hljs-string">&quot;*****************&quot;</span>);<br>        <br>        <span class="hljs-comment">//问题二：使用冒泡排序按学生成绩排序，并遍历</span><br>        test.sort(stus);<br>        test.print(stus);<br>        <br>    &#125;<br>    <br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">(Student1[] stus)</span> </span>&#123;<br>        <br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; stus.length; i++) &#123;<br>            System.out.println(stus[i].info());<br>        &#125;<br>        <br>    &#125;<br>    <br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">searchState</span><span class="hljs-params">(Student1[] stus, <span class="hljs-keyword">int</span> state)</span> </span>&#123;<br>        <br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; stus.length; i++) &#123;<br>            <br>            <span class="hljs-keyword">if</span> (stus[i].state == state) &#123;<br>                System.out.println(stus[i].info());<br>            &#125;<br>            <br>        &#125;<br>        <br>    &#125;<br>    <br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sort</span><span class="hljs-params">(Student1[] stus)</span> </span>&#123;<br>        <br>      <span class="hljs-comment">//问题二：使用冒泡排序按学生成绩排序，并遍历所有学生信息</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; stus.length - <span class="hljs-number">1</span>; i++) &#123;<br>            <br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; stus.length - <span class="hljs-number">1</span> - i; j++) &#123;<br>                <br>                <span class="hljs-keyword">if</span> (stus[j].score &gt; stus[j + <span class="hljs-number">1</span>].score) &#123;<br>                    <span class="hljs-comment">//如果需要换序，交换的是数组的元素：Student对象</span><br>                    Student1 temp = stus[j];<br>                    stus[j] = stus[j + <span class="hljs-number">1</span>];<br>                    stus[j + <span class="hljs-number">1</span>] = temp;<br>                &#125;<br>                <br>            &#125;<br>            <br>        &#125;<br>    &#125;<br>    <br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student1</span> </span>&#123;<br>    <br>    <span class="hljs-keyword">int</span> number;<br>    <span class="hljs-keyword">int</span> state;<br>    <span class="hljs-keyword">int</span> score;<br>    <br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">info</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;学号：&quot;</span> + number + <span class="hljs-string">&quot;，年级：&quot;</span> + state + <span class="hljs-string">&quot;，成绩：&quot;</span> + score;<br>    &#125;<br>    <br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Java%E6%A0%B8%E5%BF%83%E5%9F%BA%E7%A1%8030days%E7%AC%94%E8%AE%B0/">Java核心基础30days笔记</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/03/03/day09/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Java核心基础day09笔记</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/03/01/day07/">
+                        <span class="hidden-mobile">Java核心基础day07笔记</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
