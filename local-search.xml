@@ -4,13 +4,25 @@
   
   
   <entry>
-    <title>Hello World</title>
-    <link href="/2021/03/16/hello-world/"/>
-    <url>/2021/03/16/hello-world/</url>
+    <title>Java核心基础day01笔记</title>
+    <link href="/2021/02/23/day01/"/>
+    <url>/2021/02/23/day01/</url>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="17"><a href="#17" class="headerlink" title="17"></a>17</h2><p>.java文件(源文件)通过javac编译成.class文件(字节码文件)通过java运行出结果(不需要后缀.class)</p><p>源文件名必须和源文件公共类名相同</p><h2 id="21"><a href="#21" class="headerlink" title="21"></a>21</h2><p>文档注释可以被JDK提供的工具javadoc所解析，生成一套以网页文件形式体现的该程序的说明文档</p><p>javadoc -d mydoc -author -version HelloWorld.java</p><p>mydoc：文件夹名</p><p>多行注释不可嵌套</p><h2 id="24"><a href="#24" class="headerlink" title="24"></a>24</h2><p>在一个java源文件中可以声明多个class，但是最多只能有一个class声明为public，此类名与源文件名必须相同</p><p>程序的入口是main()方法，格式是固定的(args可变 []也可放在args后面)</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span><br></code></pre></td></tr></table></figure><p>编译以后，会生成一个或多个字节码文件。字节码文件名与java源文件中类名相同，有几个类就有几个字节码文件</p>]]></content>
     
     
+    <categories>
+      
+      <category>Java核心基础30days笔记</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Java</tag>
+      
+    </tags>
     
   </entry>
   
