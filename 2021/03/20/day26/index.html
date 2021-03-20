@@ -1,0 +1,473 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/headphoto.png">
+  <link rel="icon" href="/img/headphoto.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Swish">
+  <meta name="keywords" content="">
+  
+  <title>Java核心基础day26笔记 - Swish&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/androidstudio.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":5},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Swish's Blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/background.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Java核心基础day26笔记">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-03-20 00:00" pubdate>
+        March 20, 2021
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.7k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      56
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Java核心基础day26笔记</h1>
+            
+            <div class="markdown-body">
+              <h3 id="IO流"><a href="#IO流" class="headerlink" title="IO流"></a>IO流</h3><h4 id="节点流FileReader和FileWriter"><a href="#节点流FileReader和FileWriter" class="headerlink" title="节点流FileReader和FileWriter"></a>节点流FileReader和FileWriter</h4><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">import</span> org.junit.Test;<br><br><span class="hljs-keyword">import</span> java.io.*;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 一、流的分类：</span><br><span class="hljs-comment"> * 1.操作数据单位：字节流、字符流</span><br><span class="hljs-comment"> * 2.数据的流向：输入流、输出流</span><br><span class="hljs-comment"> * 3.流的角色：节点流、处理流</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 二、流的体系结构</span><br><span class="hljs-comment"> * 抽象基类         节点流（或文件流）                               缓冲流（处理流的一种）</span><br><span class="hljs-comment"> * InputStream     FileInputStream   (read(byte[] buffer))        BufferedInputStream (read(byte[] buffer))</span><br><span class="hljs-comment"> * OutputStream    FileOutputStream  (write(byte[] buffer,0,len)  BufferedOutputStream (write(byte[] buffer,0,len) / flush()</span><br><span class="hljs-comment"> * Reader          FileReader (read(char[] cbuf))                 BufferedReader (read(char[] cbuf) / readLine())</span><br><span class="hljs-comment"> * Writer          FileWriter (write(char[] cbuf,0,len)           BufferedWriter (write(char[] cbuf,0,len) / flush()</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FileReaderWriterTest</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        File file = <span class="hljs-keyword">new</span> File(<span class="hljs-string">&quot;hello.txt&quot;</span>);<span class="hljs-comment">//相较于当前工程</span><br>        System.out.println(file.getAbsolutePath());<br><br>        File file1 = <span class="hljs-keyword">new</span> File(<span class="hljs-string">&quot;day09\\hello.txt&quot;</span>);<br>        System.out.println(file1.getAbsolutePath());<br>    &#125;<br><br>    <span class="hljs-comment">/*</span><br><span class="hljs-comment">    将day09下的hello.txt文件内容读入程序中，并输出到控制台</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">    说明点：</span><br><span class="hljs-comment">    1. read()的理解：返回读入的一个字符。如果达到文件末尾，返回-1</span><br><span class="hljs-comment">    2. 异常的处理：为了保证流资源一定可以执行关闭操作。需要使用try-catch-finally处理</span><br><span class="hljs-comment">    3. 读入的文件一定要存在，否则就会报FileNotFoundException。</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testFileReader</span><span class="hljs-params">()</span></span>&#123;<br>        FileReader fr = <span class="hljs-keyword">null</span>;<br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-comment">//1.实例化File类的对象，指明要操作的文件</span><br>            File file = <span class="hljs-keyword">new</span> File(<span class="hljs-string">&quot;hello.txt&quot;</span>);<span class="hljs-comment">//相较于当前Module</span><br>            <span class="hljs-comment">//2.提供具体的流</span><br>            fr = <span class="hljs-keyword">new</span> FileReader(file);<br><br>            <span class="hljs-comment">//3.数据的读入</span><br>            <span class="hljs-comment">//read():返回读入的一个字符。如果达到文件末尾，返回-1</span><br>            <span class="hljs-comment">//方式一：</span><br><span class="hljs-comment">//        int data = fr.read();</span><br><span class="hljs-comment">//        while(data != -1)&#123;</span><br><span class="hljs-comment">//            System.out.print((char)data);</span><br><span class="hljs-comment">//            data = fr.read();</span><br><span class="hljs-comment">//        &#125;</span><br><br>            <span class="hljs-comment">//方式二：语法上针对于方式一的修改</span><br>            <span class="hljs-keyword">int</span> data;<br>            <span class="hljs-keyword">while</span>((data = fr.read()) != -<span class="hljs-number">1</span>)&#123;<br>                System.out.print((<span class="hljs-keyword">char</span>)data);<br>            &#125;<br>        &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>            e.printStackTrace();<br>        &#125; <span class="hljs-keyword">finally</span> &#123;<br>            <span class="hljs-comment">//4.流的关闭操作</span><br><span class="hljs-comment">//            try &#123;</span><br><span class="hljs-comment">//                if(fr != null)</span><br><span class="hljs-comment">//                    fr.close();</span><br><span class="hljs-comment">//            &#125; catch (IOException e) &#123;</span><br><span class="hljs-comment">//                e.printStackTrace();</span><br><span class="hljs-comment">//            &#125;</span><br>            <span class="hljs-comment">//或</span><br>            <span class="hljs-keyword">if</span>(fr != <span class="hljs-keyword">null</span>)&#123;<br>                <span class="hljs-keyword">try</span> &#123;<br>                    fr.close();<br>                &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>                    e.printStackTrace();<br>                &#125;<br>            &#125;<br>        &#125;<br><br>    &#125;<br><br>    <span class="hljs-comment">//对read()操作升级：使用read的重载方法</span><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testFileReader1</span><span class="hljs-params">()</span>  </span>&#123;<br>        FileReader fr = <span class="hljs-keyword">null</span>;<br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-comment">//1.File类的实例化</span><br>            File file = <span class="hljs-keyword">new</span> File(<span class="hljs-string">&quot;hello.txt&quot;</span>);<br><br>            <span class="hljs-comment">//2.FileReader流的实例化</span><br>            fr = <span class="hljs-keyword">new</span> FileReader(file);<br><br>            <span class="hljs-comment">//3.读入的操作</span><br>            <span class="hljs-comment">//read(char[] cbuf):返回每次读入cbuf数组中的字符的个数。如果达到文件末尾，返回-1</span><br>            <span class="hljs-keyword">char</span>[] cbuf = <span class="hljs-keyword">new</span> <span class="hljs-keyword">char</span>[<span class="hljs-number">5</span>];<br>            <span class="hljs-keyword">int</span> len;<br>            <span class="hljs-keyword">while</span>((len = fr.read(cbuf)) != -<span class="hljs-number">1</span>)&#123;<br>                <span class="hljs-comment">//方式一：</span><br>                <span class="hljs-comment">//错误的写法</span><br><span class="hljs-comment">//                for(int i = 0;i &lt; cbuf.length;i++)&#123;</span><br><span class="hljs-comment">//                    System.out.print(cbuf[i]);</span><br><span class="hljs-comment">//                &#125;</span><br>                <span class="hljs-comment">//正确的写法</span><br><span class="hljs-comment">//                for(int i = 0;i &lt; len;i++)&#123;</span><br><span class="hljs-comment">//                    System.out.print(cbuf[i]);</span><br><span class="hljs-comment">//                &#125;</span><br>                <span class="hljs-comment">//方式二：</span><br>                <span class="hljs-comment">//错误的写法,对应着方式一的错误的写法</span><br><span class="hljs-comment">//                String str = new String(cbuf);</span><br><span class="hljs-comment">//                System.out.print(str);</span><br>                <span class="hljs-comment">//正确的写法</span><br>                String str = <span class="hljs-keyword">new</span> String(cbuf,<span class="hljs-number">0</span>,len);<br>                System.out.print(str);<br>            &#125;<br>        &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>            e.printStackTrace();<br>        &#125; <span class="hljs-keyword">finally</span> &#123;<br>            <span class="hljs-keyword">if</span>(fr != <span class="hljs-keyword">null</span>)&#123;<br>                <span class="hljs-comment">//4.资源的关闭</span><br>                <span class="hljs-keyword">try</span> &#123;<br>                    fr.close();<br>                &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>                    e.printStackTrace();<br>                &#125;<br><br>            &#125;<br>        &#125;<br><br>    &#125;<br>    <span class="hljs-comment">/*</span><br><span class="hljs-comment">    从内存中写出数据到硬盘的文件里。</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">    说明：</span><br><span class="hljs-comment">    1. 输出操作，对应的File可以不存在的。并不会报异常</span><br><span class="hljs-comment">    2.</span><br><span class="hljs-comment">         File对应的硬盘中的文件如果不存在，在输出的过程中，会自动创建此文件。</span><br><span class="hljs-comment">         File对应的硬盘中的文件如果存在：</span><br><span class="hljs-comment">                如果流使用的构造器是：FileWriter(file,false) / FileWriter(file):对原有文件的覆盖</span><br><span class="hljs-comment">                如果流使用的构造器是：FileWriter(file,true):不会对原有文件覆盖，而是在原有文件基础上追加内容</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testFileWriter</span><span class="hljs-params">()</span> </span>&#123;<br>        FileWriter fw = <span class="hljs-keyword">null</span>;<br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-comment">//1.提供File类的对象，指明写出到的文件</span><br>            File file = <span class="hljs-keyword">new</span> File(<span class="hljs-string">&quot;hello1.txt&quot;</span>);<br><br>            <span class="hljs-comment">//2.提供FileWriter的对象，用于数据的写出</span><br>            fw = <span class="hljs-keyword">new</span> FileWriter(file,<span class="hljs-keyword">false</span>);<br><br>            <span class="hljs-comment">//3.写出的操作</span><br>            fw.write(<span class="hljs-string">&quot;I have a dream!\n&quot;</span>);<br>            fw.write(<span class="hljs-string">&quot;you need to have a dream!&quot;</span>);<br>        &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>            e.printStackTrace();<br>        &#125; <span class="hljs-keyword">finally</span> &#123;<br>            <span class="hljs-comment">//4.流资源的关闭</span><br>            <span class="hljs-keyword">if</span>(fw != <span class="hljs-keyword">null</span>)&#123;<br><br>                <span class="hljs-keyword">try</span> &#123;<br>                    fw.close();<br>                &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>                    e.printStackTrace();<br>                &#125;<br>            &#125;<br>        &#125;<br><br><br>    &#125;<br><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testFileReaderFileWriter</span><span class="hljs-params">()</span> </span>&#123;<br>        FileReader fr = <span class="hljs-keyword">null</span>;<br>        FileWriter fw = <span class="hljs-keyword">null</span>;<br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-comment">//1.创建File类的对象，指明读入和写出的文件</span><br>            File srcFile = <span class="hljs-keyword">new</span> File(<span class="hljs-string">&quot;hello.txt&quot;</span>);<br>            File destFile = <span class="hljs-keyword">new</span> File(<span class="hljs-string">&quot;hello2.txt&quot;</span>);<br><br>            <span class="hljs-comment">//不能使用字符流来处理图片等字节数据</span><br><span class="hljs-comment">//            File srcFile = new File(&quot;爱情与友情.jpg&quot;);</span><br><span class="hljs-comment">//            File destFile = new File(&quot;爱情与友情1.jpg&quot;);</span><br><br><br>            <span class="hljs-comment">//2.创建输入流和输出流的对象</span><br>            fr = <span class="hljs-keyword">new</span> FileReader(srcFile);<br>            fw = <span class="hljs-keyword">new</span> FileWriter(destFile);<br><br><br>            <span class="hljs-comment">//3.数据的读入和写出操作</span><br>            <span class="hljs-keyword">char</span>[] cbuf = <span class="hljs-keyword">new</span> <span class="hljs-keyword">char</span>[<span class="hljs-number">5</span>];<br>            <span class="hljs-keyword">int</span> len;<span class="hljs-comment">//记录每次读入到cbuf数组中的字符的个数</span><br>            <span class="hljs-keyword">while</span>((len = fr.read(cbuf)) != -<span class="hljs-number">1</span>)&#123;<br>                <span class="hljs-comment">//每次写出len个字符</span><br>                fw.write(cbuf,<span class="hljs-number">0</span>,len);<br><br>            &#125;<br>        &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>            e.printStackTrace();<br>        &#125; <span class="hljs-keyword">finally</span> &#123;<br>            <span class="hljs-comment">//4.关闭流资源</span><br>            <span class="hljs-comment">//方式一：</span><br><span class="hljs-comment">//            try &#123;</span><br><span class="hljs-comment">//                if(fw != null)</span><br><span class="hljs-comment">//                    fw.close();</span><br><span class="hljs-comment">//            &#125; catch (IOException e) &#123;</span><br><span class="hljs-comment">//                e.printStackTrace();</span><br><span class="hljs-comment">//            &#125;finally&#123;</span><br><span class="hljs-comment">//                try &#123;</span><br><span class="hljs-comment">//                    if(fr != null)</span><br><span class="hljs-comment">//                        fr.close();</span><br><span class="hljs-comment">//                &#125; catch (IOException e) &#123;</span><br><span class="hljs-comment">//                    e.printStackTrace();</span><br><span class="hljs-comment">//                &#125;</span><br><span class="hljs-comment">//            &#125;</span><br>            <span class="hljs-comment">//方式二：</span><br>            <span class="hljs-keyword">try</span> &#123;<br>                <span class="hljs-keyword">if</span>(fw != <span class="hljs-keyword">null</span>)<br>                    fw.close();<br>            &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>                e.printStackTrace();<br>            &#125;<br><br>            <span class="hljs-keyword">try</span> &#123;<br>                <span class="hljs-keyword">if</span>(fr != <span class="hljs-keyword">null</span>)<br>                    fr.close();<br>            &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>                e.printStackTrace();<br>            &#125;<br><br>        &#125;<br><br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<h4 id="节点流FileInputStream和FileOutputStream"><a href="#节点流FileInputStream和FileOutputStream" class="headerlink" title="节点流FileInputStream和FileOutputStream"></a>节点流FileInputStream和FileOutputStream</h4><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">import</span> org.junit.Test;<br><br><span class="hljs-keyword">import</span> java.io.*;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 测试FileInputStream和FileOutputStream的使用</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 结论：</span><br><span class="hljs-comment"> * 1. 对于文本文件(.txt,.java,.c,.cpp)，使用字符流处理</span><br><span class="hljs-comment"> * 2. 对于非文本文件(.jpg,.mp3,.mp4,.avi,.doc,.ppt,...)，使用字节流处理</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FileInputOutputStreamTest</span> </span>&#123;<br><br>    <span class="hljs-comment">//使用字节流FileInputStream处理文本文件，可能出现乱码。</span><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testFileInputStream</span><span class="hljs-params">()</span> </span>&#123;<br>        FileInputStream fis = <span class="hljs-keyword">null</span>;<br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-comment">//1. 造文件</span><br>            File file = <span class="hljs-keyword">new</span> File(<span class="hljs-string">&quot;hello.txt&quot;</span>);<br><br>            <span class="hljs-comment">//2.造流</span><br>            fis = <span class="hljs-keyword">new</span> FileInputStream(file);<br><br>            <span class="hljs-comment">//3.读数据</span><br>            <span class="hljs-keyword">byte</span>[] buffer = <span class="hljs-keyword">new</span> <span class="hljs-keyword">byte</span>[<span class="hljs-number">5</span>];<br>            <span class="hljs-keyword">int</span> len;<span class="hljs-comment">//记录每次读取的字节的个数</span><br>            <span class="hljs-keyword">while</span>((len = fis.read(buffer)) != -<span class="hljs-number">1</span>)&#123;<br><br>                String str = <span class="hljs-keyword">new</span> String(buffer,<span class="hljs-number">0</span>,len);<br>                System.out.print(str);<br><br>            &#125;<br>        &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>            e.printStackTrace();<br>        &#125; <span class="hljs-keyword">finally</span> &#123;<br>            <span class="hljs-keyword">if</span>(fis != <span class="hljs-keyword">null</span>)&#123;<br>                <span class="hljs-comment">//4.关闭资源</span><br>                <span class="hljs-keyword">try</span> &#123;<br>                    fis.close();<br>                &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>                    e.printStackTrace();<br>                &#125;<br><br>            &#125;<br>        &#125;<br><br>    &#125;<br><br>    <span class="hljs-comment">/*</span><br><span class="hljs-comment">    实现对图片的复制操作</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testFileInputOutputStream</span><span class="hljs-params">()</span>  </span>&#123;<br>        FileInputStream fis = <span class="hljs-keyword">null</span>;<br>        FileOutputStream fos = <span class="hljs-keyword">null</span>;<br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-comment">//</span><br>            File srcFile = <span class="hljs-keyword">new</span> File(<span class="hljs-string">&quot;爱情与友情.jpg&quot;</span>);<br>            File destFile = <span class="hljs-keyword">new</span> File(<span class="hljs-string">&quot;爱情与友情2.jpg&quot;</span>);<br><br>            <span class="hljs-comment">//</span><br>            fis = <span class="hljs-keyword">new</span> FileInputStream(srcFile);<br>            fos = <span class="hljs-keyword">new</span> FileOutputStream(destFile);<br><br>            <span class="hljs-comment">//复制的过程</span><br>            <span class="hljs-keyword">byte</span>[] buffer = <span class="hljs-keyword">new</span> <span class="hljs-keyword">byte</span>[<span class="hljs-number">5</span>];<br>            <span class="hljs-keyword">int</span> len;<br>            <span class="hljs-keyword">while</span>((len = fis.read(buffer)) != -<span class="hljs-number">1</span>)&#123;<br>                fos.write(buffer,<span class="hljs-number">0</span>,len);<br>            &#125;<br><br>        &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>            e.printStackTrace();<br>        &#125; <span class="hljs-keyword">finally</span> &#123;<br>            <span class="hljs-keyword">if</span>(fos != <span class="hljs-keyword">null</span>)&#123;<br>                <span class="hljs-comment">//</span><br>                <span class="hljs-keyword">try</span> &#123;<br>                    fos.close();<br>                &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>                    e.printStackTrace();<br>                &#125;<br>            &#125;<br>            <span class="hljs-keyword">if</span>(fis != <span class="hljs-keyword">null</span>)&#123;<br>                <span class="hljs-keyword">try</span> &#123;<br>                    fis.close();<br>                &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>                    e.printStackTrace();<br>                &#125;<br><br>            &#125;<br>        &#125;<br><br>    &#125;<br><br>    <span class="hljs-comment">//指定路径下文件的复制</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">copyFile</span><span class="hljs-params">(String srcPath,String destPath)</span></span>&#123;<br>        FileInputStream fis = <span class="hljs-keyword">null</span>;<br>        FileOutputStream fos = <span class="hljs-keyword">null</span>;<br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-comment">//</span><br>            File srcFile = <span class="hljs-keyword">new</span> File(srcPath);<br>            File destFile = <span class="hljs-keyword">new</span> File(destPath);<br><br>            <span class="hljs-comment">//</span><br>            fis = <span class="hljs-keyword">new</span> FileInputStream(srcFile);<br>            fos = <span class="hljs-keyword">new</span> FileOutputStream(destFile);<br><br>            <span class="hljs-comment">//复制的过程</span><br>            <span class="hljs-keyword">byte</span>[] buffer = <span class="hljs-keyword">new</span> <span class="hljs-keyword">byte</span>[<span class="hljs-number">1024</span>];<br>            <span class="hljs-keyword">int</span> len;<br>            <span class="hljs-keyword">while</span>((len = fis.read(buffer)) != -<span class="hljs-number">1</span>)&#123;<br>                fos.write(buffer,<span class="hljs-number">0</span>,len);<br>            &#125;<br><br>        &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>            e.printStackTrace();<br>        &#125; <span class="hljs-keyword">finally</span> &#123;<br>            <span class="hljs-keyword">if</span>(fos != <span class="hljs-keyword">null</span>)&#123;<br>                <span class="hljs-comment">//</span><br>                <span class="hljs-keyword">try</span> &#123;<br>                    fos.close();<br>                &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>                    e.printStackTrace();<br>                &#125;<br>            &#125;<br>            <span class="hljs-keyword">if</span>(fis != <span class="hljs-keyword">null</span>)&#123;<br>                <span class="hljs-keyword">try</span> &#123;<br>                    fis.close();<br>                &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>                    e.printStackTrace();<br>                &#125;<br><br>            &#125;<br>        &#125;<br><br><br>    &#125;<br><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testCopyFile</span><span class="hljs-params">()</span></span>&#123;<br><br>        <span class="hljs-keyword">long</span> start = System.currentTimeMillis();<br><br>        String srcPath = <span class="hljs-string">&quot;C:\\Users\\Administrator\\Desktop\\01-视频.avi&quot;</span>;<br>        String destPath = <span class="hljs-string">&quot;C:\\Users\\Administrator\\Desktop\\02-视频.avi&quot;</span>;<br><br><br><span class="hljs-comment">//        String srcPath = &quot;hello.txt&quot;;</span><br><span class="hljs-comment">//        String destPath = &quot;hello3.txt&quot;;</span><br><br>        copyFile(srcPath,destPath);<br><br><br>        <span class="hljs-keyword">long</span> end = System.currentTimeMillis();<br><br>        System.out.println(<span class="hljs-string">&quot;复制操作花费的时间为：&quot;</span> + (end - start));<span class="hljs-comment">//618</span><br><br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<h4 id="缓冲流"><a href="#缓冲流" class="headerlink" title="缓冲流"></a>缓冲流</h4><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">import</span> org.junit.Test;<br><br><span class="hljs-keyword">import</span> java.io.*;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 处理流之一：缓冲流的使用</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 1.缓冲流：</span><br><span class="hljs-comment"> * BufferedInputStream</span><br><span class="hljs-comment"> * BufferedOutputStream</span><br><span class="hljs-comment"> * BufferedReader</span><br><span class="hljs-comment"> * BufferedWriter</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 2.作用：提供流的读取、写入的速度</span><br><span class="hljs-comment"> *   提高读写速度的原因：内部提供了一个缓冲区</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 3. 处理流，就是“套接”在已有的流的基础上。</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BufferedTest</span> </span>&#123;<br><br>    <span class="hljs-comment">/*</span><br><span class="hljs-comment">    实现非文本文件的复制</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">BufferedStreamTest</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> FileNotFoundException </span>&#123;<br>        BufferedInputStream bis = <span class="hljs-keyword">null</span>;<br>        BufferedOutputStream bos = <span class="hljs-keyword">null</span>;<br><br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-comment">//1.造文件</span><br>            File srcFile = <span class="hljs-keyword">new</span> File(<span class="hljs-string">&quot;爱情与友情.jpg&quot;</span>);<br>            File destFile = <span class="hljs-keyword">new</span> File(<span class="hljs-string">&quot;爱情与友情3.jpg&quot;</span>);<br>            <span class="hljs-comment">//2.造流</span><br>            <span class="hljs-comment">//2.1 造节点流</span><br>            FileInputStream fis = <span class="hljs-keyword">new</span> FileInputStream((srcFile));<br>            FileOutputStream fos = <span class="hljs-keyword">new</span> FileOutputStream(destFile);<br>            <span class="hljs-comment">//2.2 造缓冲流</span><br>            bis = <span class="hljs-keyword">new</span> BufferedInputStream(fis);<br>            bos = <span class="hljs-keyword">new</span> BufferedOutputStream(fos);<br><br>            <span class="hljs-comment">//3.复制的细节：读取、写入</span><br>            <span class="hljs-keyword">byte</span>[] buffer = <span class="hljs-keyword">new</span> <span class="hljs-keyword">byte</span>[<span class="hljs-number">10</span>];<br>            <span class="hljs-keyword">int</span> len;<br>            <span class="hljs-keyword">while</span>((len = bis.read(buffer)) != -<span class="hljs-number">1</span>)&#123;<br>                bos.write(buffer,<span class="hljs-number">0</span>,len);<br><br><span class="hljs-comment">//                bos.flush();//刷新缓冲区</span><br><br>            &#125;<br>        &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>            e.printStackTrace();<br>        &#125; <span class="hljs-keyword">finally</span> &#123;<br>            <span class="hljs-comment">//4.资源关闭</span><br>            <span class="hljs-comment">//要求：先关闭外层的流，再关闭内层的流</span><br>            <span class="hljs-keyword">if</span>(bos != <span class="hljs-keyword">null</span>)&#123;<br>                <span class="hljs-keyword">try</span> &#123;<br>                    bos.close();<br>                &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>                    e.printStackTrace();<br>                &#125;<br><br>            &#125;<br>            <span class="hljs-keyword">if</span>(bis != <span class="hljs-keyword">null</span>)&#123;<br>                <span class="hljs-keyword">try</span> &#123;<br>                    bis.close();<br>                &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>                    e.printStackTrace();<br>                &#125;<br><br>            &#125;<br>            <span class="hljs-comment">//说明：关闭外层流的同时，内层流也会自动的进行关闭。关于内层流的关闭，我们可以省略.</span><br><span class="hljs-comment">//        fos.close();</span><br><span class="hljs-comment">//        fis.close();</span><br>        &#125;<br><br><br><br>    &#125;<br><br>    <span class="hljs-comment">//实现文件复制的方法</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">copyFileWithBuffered</span><span class="hljs-params">(String srcPath,String destPath)</span></span>&#123;<br>        BufferedInputStream bis = <span class="hljs-keyword">null</span>;<br>        BufferedOutputStream bos = <span class="hljs-keyword">null</span>;<br><br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-comment">//1.造文件</span><br>            File srcFile = <span class="hljs-keyword">new</span> File(srcPath);<br>            File destFile = <span class="hljs-keyword">new</span> File(destPath);<br>            <span class="hljs-comment">//2.造流</span><br>            <span class="hljs-comment">//2.1 造节点流</span><br>            FileInputStream fis = <span class="hljs-keyword">new</span> FileInputStream((srcFile));<br>            FileOutputStream fos = <span class="hljs-keyword">new</span> FileOutputStream(destFile);<br>            <span class="hljs-comment">//2.2 造缓冲流</span><br>            bis = <span class="hljs-keyword">new</span> BufferedInputStream(fis);<br>            bos = <span class="hljs-keyword">new</span> BufferedOutputStream(fos);<br><br>            <span class="hljs-comment">//3.复制的细节：读取、写入</span><br>            <span class="hljs-keyword">byte</span>[] buffer = <span class="hljs-keyword">new</span> <span class="hljs-keyword">byte</span>[<span class="hljs-number">1024</span>];<br>            <span class="hljs-keyword">int</span> len;<br>            <span class="hljs-keyword">while</span>((len = bis.read(buffer)) != -<span class="hljs-number">1</span>)&#123;<br>                bos.write(buffer,<span class="hljs-number">0</span>,len);<br>            &#125;<br>        &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>            e.printStackTrace();<br>        &#125; <span class="hljs-keyword">finally</span> &#123;<br>            <span class="hljs-comment">//4.资源关闭</span><br>            <span class="hljs-comment">//要求：先关闭外层的流，再关闭内层的流</span><br>            <span class="hljs-keyword">if</span>(bos != <span class="hljs-keyword">null</span>)&#123;<br>                <span class="hljs-keyword">try</span> &#123;<br>                    bos.close();<br>                &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>                    e.printStackTrace();<br>                &#125;<br><br>            &#125;<br>            <span class="hljs-keyword">if</span>(bis != <span class="hljs-keyword">null</span>)&#123;<br>                <span class="hljs-keyword">try</span> &#123;<br>                    bis.close();<br>                &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>                    e.printStackTrace();<br>                &#125;<br><br>            &#125;<br>            <span class="hljs-comment">//说明：关闭外层流的同时，内层流也会自动的进行关闭。关于内层流的关闭，我们可以省略.</span><br><span class="hljs-comment">//        fos.close();</span><br><span class="hljs-comment">//        fis.close();</span><br>        &#125;<br>    &#125;<br><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testCopyFileWithBuffered</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">long</span> start = System.currentTimeMillis();<br><br>        String srcPath = <span class="hljs-string">&quot;C:\\Users\\Administrator\\Desktop\\01-视频.avi&quot;</span>;<br>        String destPath = <span class="hljs-string">&quot;C:\\Users\\Administrator\\Desktop\\03-视频.avi&quot;</span>;<br><br><br>        copyFileWithBuffered(srcPath,destPath);<br><br><br>        <span class="hljs-keyword">long</span> end = System.currentTimeMillis();<br><br>        System.out.println(<span class="hljs-string">&quot;复制操作花费的时间为：&quot;</span> + (end - start));<span class="hljs-comment">//618 - 176</span><br>    &#125;<br><br><br>    <span class="hljs-comment">/*</span><br><span class="hljs-comment">    使用BufferedReader和BufferedWriter实现文本文件的复制</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testBufferedReaderBufferedWriter</span><span class="hljs-params">()</span></span>&#123;<br>        BufferedReader br = <span class="hljs-keyword">null</span>;<br>        BufferedWriter bw = <span class="hljs-keyword">null</span>;<br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-comment">//创建文件和相应的流</span><br>            br = <span class="hljs-keyword">new</span> BufferedReader(<span class="hljs-keyword">new</span> FileReader(<span class="hljs-keyword">new</span> File(<span class="hljs-string">&quot;dbcp.txt&quot;</span>)));<br>            bw = <span class="hljs-keyword">new</span> BufferedWriter(<span class="hljs-keyword">new</span> FileWriter(<span class="hljs-keyword">new</span> File(<span class="hljs-string">&quot;dbcp1.txt&quot;</span>)));<br><br>            <span class="hljs-comment">//读写操作</span><br>            <span class="hljs-comment">//方式一：使用char[]数组</span><br><span class="hljs-comment">//            char[] cbuf = new char[1024];</span><br><span class="hljs-comment">//            int len;</span><br><span class="hljs-comment">//            while((len = br.read(cbuf)) != -1)&#123;</span><br><span class="hljs-comment">//                bw.write(cbuf,0,len);</span><br><span class="hljs-comment">//    //            bw.flush();</span><br><span class="hljs-comment">//            &#125;</span><br><br>            <span class="hljs-comment">//方式二：使用String</span><br>            String data;<br>            <span class="hljs-keyword">while</span>((data = br.readLine()) != <span class="hljs-keyword">null</span>)&#123;<br>                <span class="hljs-comment">//方法一：</span><br><span class="hljs-comment">//                bw.write(data + &quot;\n&quot;);//data中不包含换行符</span><br>                <span class="hljs-comment">//方法二：</span><br>                bw.write(data);<span class="hljs-comment">//data中不包含换行符</span><br>                bw.newLine();<span class="hljs-comment">//提供换行的操作</span><br><br>            &#125;<br><br><br>        &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>            e.printStackTrace();<br>        &#125; <span class="hljs-keyword">finally</span> &#123;<br>            <span class="hljs-comment">//关闭资源</span><br>            <span class="hljs-keyword">if</span>(bw != <span class="hljs-keyword">null</span>)&#123;<br><br>                <span class="hljs-keyword">try</span> &#123;<br>                    bw.close();<br>                &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>                    e.printStackTrace();<br>                &#125;<br>            &#125;<br>            <span class="hljs-keyword">if</span>(br != <span class="hljs-keyword">null</span>)&#123;<br>                <span class="hljs-keyword">try</span> &#123;<br>                    br.close();<br>                &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>                    e.printStackTrace();<br>                &#125;<br><br>            &#125;<br>        &#125;<br><br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<h4 id="转换流"><a href="#转换流" class="headerlink" title="转换流"></a>转换流</h4><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">import</span> org.junit.Test;<br><br><span class="hljs-keyword">import</span> java.io.*;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 处理流之二：转换流的使用</span><br><span class="hljs-comment"> * 1.转换流：属于字符流</span><br><span class="hljs-comment"> *   InputStreamReader：将一个字节的输入流转换为字符的输入流</span><br><span class="hljs-comment"> *   OutputStreamWriter：将一个字符的输出流转换为字节的输出流</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 2.作用：提供字节流与字符流之间的转换</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 3. 解码：字节、字节数组  ---&gt;字符数组、字符串</span><br><span class="hljs-comment"> *    编码：字符数组、字符串 ---&gt; 字节、字节数组</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 4.字符集</span><br><span class="hljs-comment"> *ASCII：美国标准信息交换码。</span><br><span class="hljs-comment">    用一个字节的7位可以表示。</span><br><span class="hljs-comment"> ISO8859-1：拉丁码表。欧洲码表</span><br><span class="hljs-comment">    用一个字节的8位表示。</span><br><span class="hljs-comment"> GB2312：中国的中文编码表。最多两个字节编码所有字符</span><br><span class="hljs-comment"> GBK：中国的中文编码表升级，融合了更多的中文文字符号。最多两个字节编码</span><br><span class="hljs-comment"> Unicode：国际标准码，融合了目前人类使用的所有字符。为每个字符分配唯一的字符码。所有的文字都用两个字节来表示。</span><br><span class="hljs-comment"> UTF-8：变长的编码方式，可用1-4个字节来表示一个字符。</span><br><span class="hljs-comment"></span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">InputStreamReaderTest</span> </span>&#123;<br><br>    <span class="hljs-comment">/*</span><br><span class="hljs-comment">    此时处理异常的话，仍然应该使用try-catch-finally</span><br><span class="hljs-comment">    InputStreamReader的使用，实现字节的输入流到字符的输入流的转换</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test1</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> IOException </span>&#123;<br><br>        FileInputStream fis = <span class="hljs-keyword">new</span> FileInputStream(<span class="hljs-string">&quot;dbcp.txt&quot;</span>);<br><span class="hljs-comment">//        InputStreamReader isr = new InputStreamReader(fis);//使用系统默认的字符集</span><br>        <span class="hljs-comment">//参数2指明了字符集，具体使用哪个字符集，取决于文件dbcp.txt保存时使用的字符集</span><br>        InputStreamReader isr = <span class="hljs-keyword">new</span> InputStreamReader(fis,<span class="hljs-string">&quot;UTF-8&quot;</span>);<span class="hljs-comment">//使用系统默认的字符集</span><br><br>        <span class="hljs-keyword">char</span>[] cbuf = <span class="hljs-keyword">new</span> <span class="hljs-keyword">char</span>[<span class="hljs-number">20</span>];<br>        <span class="hljs-keyword">int</span> len;<br>        <span class="hljs-keyword">while</span>((len = isr.read(cbuf)) != -<span class="hljs-number">1</span>)&#123;<br>            String str = <span class="hljs-keyword">new</span> String(cbuf,<span class="hljs-number">0</span>,len);<br>            System.out.print(str);<br>        &#125;<br><br>        isr.close();<br><br>    &#125;<br><br>    <span class="hljs-comment">/*</span><br><span class="hljs-comment">    此时处理异常的话，仍然应该使用try-catch-finally</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">    综合使用InputStreamReader和OutputStreamWriter</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test2</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;<br>        <span class="hljs-comment">//1.造文件、造流</span><br>        File file1 = <span class="hljs-keyword">new</span> File(<span class="hljs-string">&quot;dbcp.txt&quot;</span>);<br>        File file2 = <span class="hljs-keyword">new</span> File(<span class="hljs-string">&quot;dbcp_gbk.txt&quot;</span>);<br><br>        FileInputStream fis = <span class="hljs-keyword">new</span> FileInputStream(file1);<br>        FileOutputStream fos = <span class="hljs-keyword">new</span> FileOutputStream(file2);<br><br>        InputStreamReader isr = <span class="hljs-keyword">new</span> InputStreamReader(fis,<span class="hljs-string">&quot;utf-8&quot;</span>);<br>        OutputStreamWriter osw = <span class="hljs-keyword">new</span> OutputStreamWriter(fos,<span class="hljs-string">&quot;gbk&quot;</span>);<br><br>        <span class="hljs-comment">//2.读写过程</span><br>        <span class="hljs-keyword">char</span>[] cbuf = <span class="hljs-keyword">new</span> <span class="hljs-keyword">char</span>[<span class="hljs-number">20</span>];<br>        <span class="hljs-keyword">int</span> len;<br>        <span class="hljs-keyword">while</span>((len = isr.read(cbuf)) != -<span class="hljs-number">1</span>)&#123;<br>            osw.write(cbuf,<span class="hljs-number">0</span>,len);<br>        &#125;<br><br>        <span class="hljs-comment">//3.关闭资源</span><br>        isr.close();<br>        osw.close();<br><br><br>    &#125;<br><br><br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<h4 id="其他流"><a href="#其他流" class="headerlink" title="其他流"></a>其他流</h4><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">import</span> org.junit.Test;<br><br><span class="hljs-keyword">import</span> java.io.*;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 其他流的使用</span><br><span class="hljs-comment"> * 1.标准的输入、输出流</span><br><span class="hljs-comment"> * 2.打印流</span><br><span class="hljs-comment"> * 3.数据流</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OtherStreamTest</span> </span>&#123;<br><br>    <span class="hljs-comment">/*</span><br><span class="hljs-comment">    1.标准的输入、输出流</span><br><span class="hljs-comment">    1.1</span><br><span class="hljs-comment">    System.in:标准的输入流，默认从键盘输入</span><br><span class="hljs-comment">    System.out:标准的输出流，默认从控制台输出</span><br><span class="hljs-comment">    1.2</span><br><span class="hljs-comment">    System类的setIn(InputStream is) / setOut(PrintStream ps)方式重新指定输入和输出的流。</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">    1.3练习：</span><br><span class="hljs-comment">    从键盘输入字符串，要求将读取到的整行字符串转成大写输出。然后继续进行输入操作，</span><br><span class="hljs-comment">    直至当输入“e”或者“exit”时，退出程序。</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">    方法一：使用Scanner实现，调用next()返回一个字符串</span><br><span class="hljs-comment">    方法二：使用System.in实现。System.in  ---&gt;  转换流 ---&gt; BufferedReader的readLine()</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        BufferedReader br = <span class="hljs-keyword">null</span>;<br>        <span class="hljs-keyword">try</span> &#123;<br>            InputStreamReader isr = <span class="hljs-keyword">new</span> InputStreamReader(System.in);<br>            br = <span class="hljs-keyword">new</span> BufferedReader(isr);<br><br>            <span class="hljs-keyword">while</span> (<span class="hljs-keyword">true</span>) &#123;<br>                System.out.println(<span class="hljs-string">&quot;请输入字符串：&quot;</span>);<br>                String data = br.readLine();<br>                <span class="hljs-keyword">if</span> (<span class="hljs-string">&quot;e&quot;</span>.equalsIgnoreCase(data) || <span class="hljs-string">&quot;exit&quot;</span>.equalsIgnoreCase(data)) &#123;<br>                    System.out.println(<span class="hljs-string">&quot;程序结束&quot;</span>);<br>                    <span class="hljs-keyword">break</span>;<br>                &#125;<br><br>                String upperCase = data.toUpperCase();<br>                System.out.println(upperCase);<br><br>            &#125;<br>        &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>            e.printStackTrace();<br>        &#125; <span class="hljs-keyword">finally</span> &#123;<br>            <span class="hljs-keyword">if</span> (br != <span class="hljs-keyword">null</span>) &#123;<br>                <span class="hljs-keyword">try</span> &#123;<br>                    br.close();<br>                &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>                    e.printStackTrace();<br>                &#125;<br><br>            &#125;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment">/*</span><br><span class="hljs-comment">    2. 打印流：PrintStream 和PrintWriter</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">    2.1 提供了一系列重载的print() 和 println()</span><br><span class="hljs-comment">    2.2 练习：</span><br><span class="hljs-comment"></span><br><span class="hljs-comment"></span><br><span class="hljs-comment"></span><br><span class="hljs-comment">     */</span><br><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test2</span><span class="hljs-params">()</span> </span>&#123;<br>        PrintStream ps = <span class="hljs-keyword">null</span>;<br>        <span class="hljs-keyword">try</span> &#123;<br>            FileOutputStream fos = <span class="hljs-keyword">new</span> FileOutputStream(<span class="hljs-keyword">new</span> File(<span class="hljs-string">&quot;D:\\IO\\text.txt&quot;</span>));<br>            <span class="hljs-comment">// 创建打印输出流,设置为自动刷新模式(写入换行符或字节 &#x27;\n&#x27; 时都会刷新输出缓冲区)</span><br>            ps = <span class="hljs-keyword">new</span> PrintStream(fos, <span class="hljs-keyword">true</span>);<br>            <span class="hljs-keyword">if</span> (ps != <span class="hljs-keyword">null</span>) &#123;<span class="hljs-comment">// 把标准输出流(控制台输出)改成文件</span><br>                System.setOut(ps);<br>            &#125;<br><br><br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt;= <span class="hljs-number">255</span>; i++) &#123; <span class="hljs-comment">// 输出ASCII字符</span><br>                System.out.print((<span class="hljs-keyword">char</span>) i);<br>                <span class="hljs-keyword">if</span> (i % <span class="hljs-number">50</span> == <span class="hljs-number">0</span>) &#123; <span class="hljs-comment">// 每50个数据一行</span><br>                    System.out.println(); <span class="hljs-comment">// 换行</span><br>                &#125;<br>            &#125;<br><br><br>        &#125; <span class="hljs-keyword">catch</span> (FileNotFoundException e) &#123;<br>            e.printStackTrace();<br>        &#125; <span class="hljs-keyword">finally</span> &#123;<br>            <span class="hljs-keyword">if</span> (ps != <span class="hljs-keyword">null</span>) &#123;<br>                ps.close();<br>            &#125;<br>        &#125;<br><br>    &#125;<br><br>    <span class="hljs-comment">/*</span><br><span class="hljs-comment">    3. 数据流</span><br><span class="hljs-comment">    3.1 DataInputStream 和 DataOutputStream</span><br><span class="hljs-comment">    3.2 作用：用于读取或写出基本数据类型的变量或字符串</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">    练习：将内存中的字符串、基本数据类型的变量写出到文件中。</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">    注意：处理异常的话，仍然应该使用try-catch-finally.</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test3</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> IOException </span>&#123;<br>        <span class="hljs-comment">//1.</span><br>        DataOutputStream dos = <span class="hljs-keyword">new</span> DataOutputStream(<span class="hljs-keyword">new</span> FileOutputStream(<span class="hljs-string">&quot;data.txt&quot;</span>));<br>        <span class="hljs-comment">//2.</span><br>        dos.writeUTF(<span class="hljs-string">&quot;刘建辰&quot;</span>);<br>        dos.flush();<span class="hljs-comment">//刷新操作，将内存中的数据写入文件</span><br>        dos.writeInt(<span class="hljs-number">23</span>);<br>        dos.flush();<br>        dos.writeBoolean(<span class="hljs-keyword">true</span>);<br>        dos.flush();<br>        <span class="hljs-comment">//3.</span><br>        dos.close();<br><br><br>    &#125;<br>    <span class="hljs-comment">/*</span><br><span class="hljs-comment">    将文件中存储的基本数据类型变量和字符串读取到内存中，保存在变量中。</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">    注意点：读取不同类型的数据的顺序要与当初写入文件时，保存的数据的顺序一致！</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test4</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> IOException </span>&#123;<br>        <span class="hljs-comment">//1.</span><br>        DataInputStream dis = <span class="hljs-keyword">new</span> DataInputStream(<span class="hljs-keyword">new</span> FileInputStream(<span class="hljs-string">&quot;data.txt&quot;</span>));<br>        <span class="hljs-comment">//2.</span><br>        String name = dis.readUTF();<br>        <span class="hljs-keyword">int</span> age = dis.readInt();<br>        <span class="hljs-keyword">boolean</span> isMale = dis.readBoolean();<br><br>        System.out.println(<span class="hljs-string">&quot;name = &quot;</span> + name);<br>        System.out.println(<span class="hljs-string">&quot;age = &quot;</span> + age);<br>        System.out.println(<span class="hljs-string">&quot;isMale = &quot;</span> + isMale);<br><br>        <span class="hljs-comment">//3.</span><br>        dis.close();<br><br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Java%E6%A0%B8%E5%BF%83%E5%9F%BA%E7%A1%8030days%E7%AC%94%E8%AE%B0/">Java核心基础30days笔记</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/03/19/day25/">
+                        <span class="hidden-mobile">Java核心基础day25笔记</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
