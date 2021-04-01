@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>LeetCode剑指Offer10-I.斐波那契数列</title>
+    <link href="/2021/04/01/%E5%89%91%E6%8C%87Offer10-I/"/>
+    <url>/2021/04/01/%E5%89%91%E6%8C%87Offer10-I/</url>
+    
+    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 剑指 Offer 10- I. 斐波那契数列</span><br><span class="hljs-comment"> * 写一个函数，输入 n ，求斐波那契（Fibonacci）数列的第 n 项（即 F(N)）。</span><br><span class="hljs-comment"> * 斐波那契数列的定义如下：</span><br><span class="hljs-comment"> * F(0) = 0, F(1)= 1</span><br><span class="hljs-comment"> * F(N) = F(N - 1) + F(N - 2), 其中 N &gt; 1.</span><br><span class="hljs-comment"> * 斐波那契数列由 0 和 1 开始，之后的斐波那契数就是由之前的两数相加而得出。</span><br><span class="hljs-comment"> * 答案需要取模 1e9+7（1000000007），如计算初始结果为：1000000008，请返回 1。</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 示例 1：</span><br><span class="hljs-comment"> * 输入：n = 2</span><br><span class="hljs-comment"> * 输出：1</span><br><span class="hljs-comment"> * 示例 2：</span><br><span class="hljs-comment"> * 输入：n = 5</span><br><span class="hljs-comment"> * 输出：5</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 提示：</span><br><span class="hljs-comment"> * 0 &lt;= n &lt;= 100</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 思路：</span><br><span class="hljs-comment"> * 由于dp列表第i项只与第i-1项和第i-2项有关，</span><br><span class="hljs-comment"> * 因此只需要初始化三个整形变量sum，a，b，</span><br><span class="hljs-comment"> * 利用辅助变量sum使a，b两数字交替前进即可</span><br><span class="hljs-comment"> */</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">fib</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> a = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">int</span> b = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">int</span> sum;<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>            sum = (a + b) % <span class="hljs-number">1000000007</span>;<br>            a = b;<br>            b = sum;<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> a;<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode剑指Offer题解</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Java</tag>
+      
+      <tag>LeetCode</tag>
+      
+      <tag>剑指Offer</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode剑指Offer09.用两个栈实现队列</title>
     <link href="/2021/03/31/%E5%89%91%E6%8C%87Offer09/"/>
     <url>/2021/03/31/%E5%89%91%E6%8C%87Offer09/</url>

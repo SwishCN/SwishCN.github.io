@@ -18,7 +18,7 @@
   <meta name="author" content="Swish">
   <meta name="keywords" content="">
   
-  <title>LeetCode剑指Offer09.用两个栈实现队列 - Swish&#39;s Blog</title>
+  <title>LeetCode剑指Offer10-I.斐波那契数列 - Swish&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="LeetCode剑指Offer09.用两个栈实现队列">
+            <span class="h2" id="subtitle" title="LeetCode剑指Offer10-I.斐波那契数列">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-03-31 00:00" pubdate>
-        March 31, 2021
+      <time datetime="2021-04-01 00:00" pubdate>
+        April 1, 2021
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      240 字
+      241 字
     </span>
   
 
@@ -233,10 +233,10 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">LeetCode剑指Offer09.用两个栈实现队列</h1>
+            <h1 style="display: none">LeetCode剑指Offer10-I.斐波那契数列</h1>
             
             <div class="markdown-body">
-              <figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 剑指 Offer 09. 用两个栈实现队列</span><br><span class="hljs-comment"> * 用两个栈实现一个队列。</span><br><span class="hljs-comment"> * 队列的声明如下，请实现它的两个函数 appendTail 和 deleteHead ，</span><br><span class="hljs-comment"> * 分别完成在队列尾部插入整数和在队列头部删除整数的功能。(若队列中没有元素，deleteHead操作返回 -1 )</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 示例 1：</span><br><span class="hljs-comment"> * 输入：</span><br><span class="hljs-comment"> * [&quot;CQueue&quot;,&quot;appendTail&quot;,&quot;deleteHead&quot;,&quot;deleteHead&quot;]</span><br><span class="hljs-comment"> * [[],[3],[],[]]</span><br><span class="hljs-comment"> * 输出：[null,null,3,-1]</span><br><span class="hljs-comment"> * 示例 2：</span><br><span class="hljs-comment"> * 输入：</span><br><span class="hljs-comment"> * [&quot;CQueue&quot;,&quot;deleteHead&quot;,&quot;appendTail&quot;,&quot;appendTail&quot;,&quot;deleteHead&quot;,&quot;deleteHead&quot;]</span><br><span class="hljs-comment"> * [[],[],[5],[2],[],[]]</span><br><span class="hljs-comment"> * 输出：[null,-1,null,null,5,2]</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 提示：</span><br><span class="hljs-comment"> * 1 &lt;= values &lt;= 10000</span><br><span class="hljs-comment"> * 最多会对appendTail、deleteHead 进行10000次调用</span><br><span class="hljs-comment"> */</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CQueue</span> </span>&#123;<br>    <span class="hljs-comment">//两个栈，一个出栈，一个入栈</span><br>    <span class="hljs-keyword">private</span> Stack&lt;Integer&gt; stack1;<br>    <span class="hljs-keyword">private</span> Stack&lt;Integer&gt; stack2;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">CQueue</span><span class="hljs-params">()</span> </span>&#123;<br>        stack1 = <span class="hljs-keyword">new</span> Stack&lt;&gt;();<br>        stack2 = <span class="hljs-keyword">new</span> Stack&lt;&gt;();<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">appendTail</span><span class="hljs-params">(<span class="hljs-keyword">int</span> value)</span> </span>&#123;<br>        stack1.push(value);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">deleteHead</span><span class="hljs-params">()</span> </span>&#123;<br><br>        <span class="hljs-keyword">if</span> (!stack2.isEmpty()) &#123;<br>            <span class="hljs-keyword">return</span> stack2.pop();<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br><br>            <span class="hljs-keyword">while</span>(!stack1.isEmpty()) &#123;<br>                stack2.push(stack1.pop());<br>            &#125;<br><br>            <span class="hljs-keyword">return</span> stack2.isEmpty() ? -<span class="hljs-number">1</span> : stack2.pop();<br>        &#125;<br><br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
+              <figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 剑指 Offer 10- I. 斐波那契数列</span><br><span class="hljs-comment"> * 写一个函数，输入 n ，求斐波那契（Fibonacci）数列的第 n 项（即 F(N)）。</span><br><span class="hljs-comment"> * 斐波那契数列的定义如下：</span><br><span class="hljs-comment"> * F(0) = 0, F(1)= 1</span><br><span class="hljs-comment"> * F(N) = F(N - 1) + F(N - 2), 其中 N &gt; 1.</span><br><span class="hljs-comment"> * 斐波那契数列由 0 和 1 开始，之后的斐波那契数就是由之前的两数相加而得出。</span><br><span class="hljs-comment"> * 答案需要取模 1e9+7（1000000007），如计算初始结果为：1000000008，请返回 1。</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 示例 1：</span><br><span class="hljs-comment"> * 输入：n = 2</span><br><span class="hljs-comment"> * 输出：1</span><br><span class="hljs-comment"> * 示例 2：</span><br><span class="hljs-comment"> * 输入：n = 5</span><br><span class="hljs-comment"> * 输出：5</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 提示：</span><br><span class="hljs-comment"> * 0 &lt;= n &lt;= 100</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 思路：</span><br><span class="hljs-comment"> * 由于dp列表第i项只与第i-1项和第i-2项有关，</span><br><span class="hljs-comment"> * 因此只需要初始化三个整形变量sum，a，b，</span><br><span class="hljs-comment"> * 利用辅助变量sum使a，b两数字交替前进即可</span><br><span class="hljs-comment"> */</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">fib</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> a = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">int</span> b = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">int</span> sum;<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>            sum = (a + b) % <span class="hljs-number">1000000007</span>;<br>            a = b;<br>            b = sum;<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> a;<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 
             </div>
@@ -276,18 +276,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/04/01/%E5%89%91%E6%8C%87Offer10-I/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeetCode剑指Offer10-I.斐波那契数列</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/03/30/%E5%89%91%E6%8C%87Offer07/">
-                        <span class="hidden-mobile">LeetCode剑指Offer07.重建二叉树</span>
+                      <a href="/2021/03/31/%E5%89%91%E6%8C%87Offer09/">
+                        <span class="hidden-mobile">LeetCode剑指Offer09.用两个栈实现队列</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
