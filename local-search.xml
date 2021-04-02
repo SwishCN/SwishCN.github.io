@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>LeetCode剑指Offer10-II.青蛙跳台阶问题</title>
+    <link href="/2021/04/02/%E5%89%91%E6%8C%87Offer10-II/"/>
+    <url>/2021/04/02/%E5%89%91%E6%8C%87Offer10-II/</url>
+    
+    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 剑指 Offer 10- II. 青蛙跳台阶问题</span><br><span class="hljs-comment"> * 一只青蛙一次可以跳上1级台阶，也可以跳上2级台阶。</span><br><span class="hljs-comment"> * 求该青蛙跳上一个n级的台阶总共有多少种跳法。</span><br><span class="hljs-comment"> * 答案需要取模 1e9+7（1000000007），如计算初始结果为：1000000008，请返回1。</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 示例 1：</span><br><span class="hljs-comment"> * 输入：n = 2</span><br><span class="hljs-comment"> * 输出：2</span><br><span class="hljs-comment"> * 示例 2：</span><br><span class="hljs-comment"> * 输入：n = 7</span><br><span class="hljs-comment"> * 输出：21</span><br><span class="hljs-comment"> * 示例 3：</span><br><span class="hljs-comment"> * 输入：n = 0</span><br><span class="hljs-comment"> * 输出：1</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 提示：</span><br><span class="hljs-comment"> * 0 &lt;= n &lt;= 100</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 思路：</span><br><span class="hljs-comment"> * 把n级台阶的跳法数量看成n的函数，记为f(n)。</span><br><span class="hljs-comment"> * 当n&gt;2时，当青蛙跳到n-1级上，有f(n-1)种跳法，最后一次跳1级到n级。</span><br><span class="hljs-comment"> *         当青蛙跳到n-2级上，有f(n-2)种跳法，最后一次跳2级到n级（不能只条一级，已包含在f(n-1)中）。</span><br><span class="hljs-comment"> * 即使前n-2级跳法可能存在相同，但结合不同的最后一跳，产生不同的跳法</span><br><span class="hljs-comment"> * 即推出当n&gt;2时，f(n)=f(n-1)+f(n-2)</span><br><span class="hljs-comment"> */</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">numWays</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span> </span>&#123;<br><br>        <span class="hljs-keyword">if</span> (n &lt;= <span class="hljs-number">1</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>        &#125;<br><br>        <span class="hljs-keyword">int</span> a = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">int</span> b = <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">int</span> sum;<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n - <span class="hljs-number">1</span>; i++) &#123;<br>            sum = (a + b) % <span class="hljs-number">1000000007</span>;<br>            a = b;<br>            b = sum;<br>        &#125;<br><br>        <span class="hljs-keyword">return</span>  a;<br><br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode剑指Offer题解</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Java</tag>
+      
+      <tag>LeetCode</tag>
+      
+      <tag>剑指Offer</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode剑指Offer10-I.斐波那契数列</title>
     <link href="/2021/04/01/%E5%89%91%E6%8C%87Offer10-I/"/>
     <url>/2021/04/01/%E5%89%91%E6%8C%87Offer10-I/</url>
