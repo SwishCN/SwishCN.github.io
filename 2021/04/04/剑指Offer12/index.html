@@ -18,7 +18,7 @@
   <meta name="author" content="Swish">
   <meta name="keywords" content="">
   
-  <title>LeetCode剑指Offer11.旋转数组的最小数字 - Swish&#39;s Blog</title>
+  <title>LeetCode剑指Offer12.矩阵中的路径 - Swish&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="LeetCode剑指Offer11.旋转数组的最小数字">
+            <span class="h2" id="subtitle" title="LeetCode剑指Offer12.矩阵中的路径">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-04-03 00:00" pubdate>
-        April 3, 2021
+      <time datetime="2021-04-04 00:00" pubdate>
+        April 4, 2021
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      510 字
+      499 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      6
+      7
        分钟
     </span>
   
@@ -233,10 +233,10 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">LeetCode剑指Offer11.旋转数组的最小数字</h1>
+            <h1 style="display: none">LeetCode剑指Offer12.矩阵中的路径</h1>
             
             <div class="markdown-body">
-              <figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 剑指 Offer 11. 旋转数组的最小数字</span><br><span class="hljs-comment"> * 把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。</span><br><span class="hljs-comment"> * 输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。</span><br><span class="hljs-comment"> * 例如，数组[3,4,5,1,2] 为 [1,2,3,4,5] 的一个旋转，该数组的最小值为1。</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 示例 1：</span><br><span class="hljs-comment"> * 输入：[3,4,5,1,2]</span><br><span class="hljs-comment"> * 输出：1</span><br><span class="hljs-comment"> * 示例 2：</span><br><span class="hljs-comment"> * 输入：[2,2,2,0,1]</span><br><span class="hljs-comment"> * 输出：0</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 思路：</span><br><span class="hljs-comment"> * 寻找旋转数组的最小元素即为寻找 右排序数组 的首个元素nums[x]，称x为旋转点。</span><br><span class="hljs-comment"> * 排序数组的查找问题首先考虑使用 二分法 解决，其可将 遍历法 的 线性级别 时间复杂度降低至 对数级别。</span><br><span class="hljs-comment"> * 一、初始化：声明i,j双指针分别指向nums数组左右两端</span><br><span class="hljs-comment"> * 二、循环二分：设m=(i+j)/2为每次二分的中点（恒有i&lt;=m&lt;j）</span><br><span class="hljs-comment"> *     可分为以下三种情况：</span><br><span class="hljs-comment"> *     1.当nums[m]&gt;nums[j]时：m一定在左排序数组中，即旋转点x一定在[m+1,j]闭区间内，因此执行i=m+1；</span><br><span class="hljs-comment"> *     2.当nums[m]&lt;nums[j]时：m一定在右排序数组中，即旋转点x一定在[i,m]闭区间内，因此执行j=m；</span><br><span class="hljs-comment"> *     3.当nums[m]==nums[j]时：无法判断m在哪个排序数组中，即无法判断旋转点x在[i,m]还是[m+1,j]区间中。</span><br><span class="hljs-comment"> *       解决方案：执行j=j-1缩小判断范围</span><br><span class="hljs-comment"> * 三、返回值：当i==j时跳出二分循环，并返回旋转点的值nums[i]即可</span><br><span class="hljs-comment"> * 出处：https://leetcode-cn.com/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof/solution/mian-shi-ti-11-xuan-zhuan-shu-zu-de-zui-xiao-shu-3/</span><br><span class="hljs-comment"> */</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">minArray</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] numbers)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">int</span> j = numbers.length - <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">int</span> m;<br><br>        <span class="hljs-keyword">while</span> (i &lt; j) &#123;<br>            m = (i + j) / <span class="hljs-number">2</span>;<br><br>            <span class="hljs-keyword">if</span> (numbers[m] &gt; numbers[j]) &#123;<br>                i = m + <span class="hljs-number">1</span>;<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (numbers[m] &lt; numbers[j]) &#123;<br>                j = m;<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                j--;<br>            &#125;<br><br>        &#125;<br><br>        <span class="hljs-keyword">return</span> numbers[i];<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
+              <figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 剑指 Offer 12. 矩阵中的路径</span><br><span class="hljs-comment"> * 请设计一个函数，用来判断在一个矩阵中是否存在一条包含某字符串所有字符的路径。</span><br><span class="hljs-comment"> * 路径可以从矩阵中的任意一格开始，每一步可以在矩阵中向左、右、上、下移动一格。</span><br><span class="hljs-comment"> * 如果一条路径经过了矩阵的某一格，那么该路径不能再次进入该格子。</span><br><span class="hljs-comment"> * 例如，在下面的3×4的矩阵中包含一条字符串“bfce”的路径（路径中的字母用加粗标出）。</span><br><span class="hljs-comment"> * [[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;e&quot;],</span><br><span class="hljs-comment"> * [&quot;s&quot;,&quot;f&quot;,&quot;c&quot;,&quot;s&quot;],</span><br><span class="hljs-comment"> * [&quot;a&quot;,&quot;d&quot;,&quot;e&quot;,&quot;e&quot;]]</span><br><span class="hljs-comment"> * 但矩阵中不包含字符串“abfb”的路径，</span><br><span class="hljs-comment"> * 因为字符串的第一个字符b占据了矩阵中的第一行第二个格子之后，</span><br><span class="hljs-comment"> * 路径不能再次进入这个格子。</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 示例 1：</span><br><span class="hljs-comment"> * 输入：board = [[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;E&quot;],</span><br><span class="hljs-comment"> *               [&quot;S&quot;,&quot;F&quot;,&quot;C&quot;,&quot;S&quot;],</span><br><span class="hljs-comment"> *               [&quot;A&quot;,&quot;D&quot;,&quot;E&quot;,&quot;E&quot;]],</span><br><span class="hljs-comment"> *              word = &quot;ABCCED&quot;</span><br><span class="hljs-comment"> * 输出：true</span><br><span class="hljs-comment"> * 示例 2：</span><br><span class="hljs-comment"> * 输入：board = [[&quot;a&quot;,&quot;b&quot;],[&quot;c&quot;,&quot;d&quot;]], word = &quot;abcd&quot;</span><br><span class="hljs-comment"> * 输出：false</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 提示：</span><br><span class="hljs-comment"> * 1 &lt;= board.length &lt;= 200</span><br><span class="hljs-comment"> * 1 &lt;= board[i].length &lt;= 200</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 思路：https://leetcode-cn.com/problems/ju-zhen-zhong-de-lu-jing-lcof/solution/mian-shi-ti-12-ju-zhen-zhong-de-lu-jing-shen-du-yo/</span><br><span class="hljs-comment"> */</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">exist</span><span class="hljs-params">(<span class="hljs-keyword">char</span>[][] board, String word)</span> </span>&#123;<br>        <span class="hljs-keyword">char</span>[] words = word.toCharArray();<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; board.length; i++) &#123;<br><br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; board[<span class="hljs-number">0</span>].length; j++) &#123;<br><br>                <span class="hljs-keyword">if</span> (dfs(board, words, i, j, <span class="hljs-number">0</span>)) &#123;<br>                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>                &#125;<br><br>            &#125;<br><br>        &#125;<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-keyword">char</span>[][] board, <span class="hljs-keyword">char</span>[] words, <span class="hljs-keyword">int</span> i, <span class="hljs-keyword">int</span> j, <span class="hljs-keyword">int</span> k)</span> </span>&#123;<br><br>        <span class="hljs-keyword">if</span> (i &lt; <span class="hljs-number">0</span> || i &gt;= board.length || j &lt; <span class="hljs-number">0</span> || j &gt;= board[<span class="hljs-number">0</span>].length || board[i][j] != words[k]) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>        &#125;<br><br>        <span class="hljs-keyword">if</span> (k == words.length - <span class="hljs-number">1</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>        &#125;<br><br>        board[i][j] = <span class="hljs-string">&#x27;\0&#x27;</span>;<br>        <span class="hljs-keyword">boolean</span> res = dfs(board, words, i - <span class="hljs-number">1</span>, j, k + <span class="hljs-number">1</span>) ||<br>                      dfs(board, words, i + <span class="hljs-number">1</span>, j, k + <span class="hljs-number">1</span>) ||<br>                      dfs(board, words, i, j - <span class="hljs-number">1</span>, k + <span class="hljs-number">1</span>) ||<br>                      dfs(board, words, i, j + <span class="hljs-number">1</span>, k + <span class="hljs-number">1</span>);<br>        board[i][j] = words[k];<br>        <span class="hljs-keyword">return</span> res;<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 
             </div>
@@ -276,18 +276,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/04/04/%E5%89%91%E6%8C%87Offer12/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeetCode剑指Offer12.矩阵中的路径</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/04/02/%E5%89%91%E6%8C%87Offer10-II/">
-                        <span class="hidden-mobile">LeetCode剑指Offer10-II.青蛙跳台阶问题</span>
+                      <a href="/2021/04/03/%E5%89%91%E6%8C%87Offer11/">
+                        <span class="hidden-mobile">LeetCode剑指Offer11.旋转数组的最小数字</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
