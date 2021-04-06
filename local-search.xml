@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>LeetCode剑指Offer14-I.剪绳子</title>
+    <link href="/2021/04/06/%E5%89%91%E6%8C%87Offer14-I/"/>
+    <url>/2021/04/06/%E5%89%91%E6%8C%87Offer14-I/</url>
+    
+    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 剑指 Offer 14- I. 剪绳子</span><br><span class="hljs-comment"> * 给你一根长度为 n 的绳子，请把绳子剪成整数长度的 m 段（m、n都是整数，n&gt;1并且m&gt;1），</span><br><span class="hljs-comment"> * 每段绳子的长度记为 k[0],k[1]...k[m-1] 。</span><br><span class="hljs-comment"> * 请问 k[0]*k[1]*...*k[m-1] 可能的最大乘积是多少？</span><br><span class="hljs-comment"> * 例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 示例 1：</span><br><span class="hljs-comment"> * 输入: 2</span><br><span class="hljs-comment"> * 输出: 1</span><br><span class="hljs-comment"> * 解释: 2 = 1 + 1, 1 × 1 = 1</span><br><span class="hljs-comment"> * 示例2:</span><br><span class="hljs-comment"> * 输入: 10</span><br><span class="hljs-comment"> * 输出: 36</span><br><span class="hljs-comment"> * 解释: 10 = 3 + 3 + 4, 3 ×3 ×4 = 36</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 提示：</span><br><span class="hljs-comment"> * 2 &lt;= n &lt;= 58</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 思路：https://leetcode-cn.com/problems/jian-sheng-zi-lcof/solution/mian-shi-ti-14-i-jian-sheng-zi-tan-xin-si-xiang-by/</span><br><span class="hljs-comment"> */</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">cuttingRope</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span> </span>&#123;<br><br>        <span class="hljs-keyword">if</span> (n &lt;= <span class="hljs-number">3</span>) &#123;<br>            <span class="hljs-keyword">return</span> n - <span class="hljs-number">1</span>;<br>        &#125;<br><br>        <span class="hljs-keyword">int</span> a = n / <span class="hljs-number">3</span>;<br>        <span class="hljs-keyword">int</span> b = n % <span class="hljs-number">3</span>;<br><br>        <span class="hljs-keyword">if</span> (b == <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-keyword">return</span> (<span class="hljs-keyword">int</span>)Math.pow(<span class="hljs-number">3</span>, a);<br>        &#125;<br><br>        <span class="hljs-keyword">if</span> (b == <span class="hljs-number">1</span>) &#123;<br>            <span class="hljs-keyword">return</span> (<span class="hljs-keyword">int</span>)Math.pow(<span class="hljs-number">3</span>, a - <span class="hljs-number">1</span>) * <span class="hljs-number">4</span>;<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> (<span class="hljs-keyword">int</span>)Math.pow(<span class="hljs-number">3</span>, a) * <span class="hljs-number">2</span>;<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode剑指Offer题解</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Java</tag>
+      
+      <tag>LeetCode</tag>
+      
+      <tag>剑指Offer</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode剑指Offer13.机器人的运动范围</title>
     <link href="/2021/04/05/%E5%89%91%E6%8C%87Offer13/"/>
     <url>/2021/04/05/%E5%89%91%E6%8C%87Offer13/</url>
@@ -498,7 +527,7 @@
   
   
   <entry>
-    <title>Java核心基础day22笔记</title>
+    <title></title>
     <link href="/2021/03/16/day22/"/>
     <url>/2021/03/16/day22/</url>
     
