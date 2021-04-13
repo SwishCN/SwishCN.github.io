@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>LeetCode剑指Offer24.反转链表</title>
+    <link href="/2021/04/15/%E5%89%91%E6%8C%87Offer24/"/>
+    <url>/2021/04/15/%E5%89%91%E6%8C%87Offer24/</url>
+    
+    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 剑指 Offer 24. 反转链表</span><br><span class="hljs-comment"> * 定义一个函数，输入一个链表的头节点，</span><br><span class="hljs-comment"> * 反转该链表并输出反转后链表的头节点。</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 示例:</span><br><span class="hljs-comment"> * 输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL</span><br><span class="hljs-comment"> * 输出: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 限制：</span><br><span class="hljs-comment"> * 0 &lt;= 节点个数 &lt;= 5000</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 思路：https://leetcode-cn.com/problems/fan-zhuan-lian-biao-lcof/solution/jian-zhi-offer-24-fan-zhuan-lian-biao-die-dai-di-2/</span><br><span class="hljs-comment"> */</span><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Definition for singly-linked list.</span><br><span class="hljs-comment"> * public class ListNode &#123;</span><br><span class="hljs-comment"> *     int val;</span><br><span class="hljs-comment"> *     ListNode next;</span><br><span class="hljs-comment"> *     ListNode(int x) &#123; val = x; &#125;</span><br><span class="hljs-comment"> * &#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> ListNode <span class="hljs-title">reverseList</span><span class="hljs-params">(ListNode head)</span> </span>&#123;<br>        ListNode cur = head, pre = <span class="hljs-keyword">null</span>;<br><br>        <span class="hljs-keyword">while</span>(cur != <span class="hljs-keyword">null</span>) &#123;<br>            ListNode tmp = cur.next; <span class="hljs-comment">// 暂存后继节点 cur.next</span><br>            cur.next = pre;          <span class="hljs-comment">// 修改 next 引用指向</span><br>            pre = cur;               <span class="hljs-comment">// pre 暂存 cur</span><br>            cur = tmp;               <span class="hljs-comment">// cur 访问下一节点</span><br>        &#125;<br><br>        <span class="hljs-keyword">return</span> pre;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode剑指Offer题解</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Java</tag>
+      
+      <tag>LeetCode</tag>
+      
+      <tag>剑指Offer</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode剑指Offer22.链表中倒数第k个节点</title>
     <link href="/2021/04/14/%E5%89%91%E6%8C%87Offer22/"/>
     <url>/2021/04/14/%E5%89%91%E6%8C%87Offer22/</url>
