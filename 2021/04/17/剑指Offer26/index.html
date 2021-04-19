@@ -18,7 +18,7 @@
   <meta name="author" content="Swish">
   <meta name="keywords" content="">
   
-  <title>LeetCode剑指Offer25.合并两个排序的链表 - Swish&#39;s Blog</title>
+  <title>LeetCode剑指Offer26.树的子结构 - Swish&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="LeetCode剑指Offer25.合并两个排序的链表">
+            <span class="h2" id="subtitle" title="LeetCode剑指Offer26.树的子结构">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-04-16 00:00" pubdate>
-        April 16, 2021
+      <time datetime="2021-04-17 00:00" pubdate>
+        April 17, 2021
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      173 字
+      280 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2
+      4
        分钟
     </span>
   
@@ -233,10 +233,10 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">LeetCode剑指Offer25.合并两个排序的链表</h1>
+            <h1 style="display: none">LeetCode剑指Offer26.树的子结构</h1>
             
             <div class="markdown-body">
-              <figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 剑指 Offer 25. 合并两个排序的链表</span><br><span class="hljs-comment"> * 输入两个递增排序的链表，合并这两个链表并使新链表中的节点仍然是递增排序的。</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 示例1：</span><br><span class="hljs-comment"> * 输入：1-&gt;2-&gt;4, 1-&gt;3-&gt;4</span><br><span class="hljs-comment"> * 输出：1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 限制：</span><br><span class="hljs-comment"> * 0 &lt;= 链表长度 &lt;= 1000</span><br><span class="hljs-comment"> */</span><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Definition for singly-linked list.</span><br><span class="hljs-comment"> * public class ListNode &#123;</span><br><span class="hljs-comment"> *     int val;</span><br><span class="hljs-comment"> *     ListNode next;</span><br><span class="hljs-comment"> *     ListNode(int x) &#123; val = x; &#125;</span><br><span class="hljs-comment"> * &#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> ListNode <span class="hljs-title">mergeTwoLists</span><span class="hljs-params">(ListNode l1, ListNode l2)</span> </span>&#123;<br>        ListNode res = <span class="hljs-keyword">new</span> ListNode(<span class="hljs-number">0</span>);<br>        ListNode cur = res;<br><br>        <span class="hljs-keyword">while</span> (l1 != <span class="hljs-keyword">null</span> &amp;&amp; l2 != <span class="hljs-keyword">null</span>) &#123;<br><br>            <span class="hljs-keyword">if</span> (l1.val &lt; l2.val) &#123;<br>                cur.next = l1;<br>                l1 = l1.next;<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                cur.next = l2;<br>                l2 = l2.next;<br>            &#125;<br><br>            cur = cur.next;<br>        &#125;<br><br>        cur.next = l1 == <span class="hljs-keyword">null</span> ? l2 : l1;<br>        <span class="hljs-keyword">return</span> res.next;<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
+              <figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 剑指 Offer 26. 树的子结构</span><br><span class="hljs-comment"> * 输入两棵二叉树A和B，判断B是不是A的子结构。(约定空树不是任意一个树的子结构)</span><br><span class="hljs-comment"> * B是A的子结构， 即 A中有出现和B相同的结构和节点值。</span><br><span class="hljs-comment"> * 例如:</span><br><span class="hljs-comment"> * 给定的树 A:</span><br><span class="hljs-comment"> *     3</span><br><span class="hljs-comment"> *    / \</span><br><span class="hljs-comment"> *   4   5</span><br><span class="hljs-comment"> *  / \</span><br><span class="hljs-comment"> * 1   2</span><br><span class="hljs-comment"> * 给定的树 B：</span><br><span class="hljs-comment"> *   4</span><br><span class="hljs-comment"> *  /</span><br><span class="hljs-comment"> * 1</span><br><span class="hljs-comment"> * 返回 true，因为 B 与 A 的一个子树拥有相同的结构和节点值。</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 示例 1：</span><br><span class="hljs-comment"> * 输入：A = [1,2,3], B = [3,1]</span><br><span class="hljs-comment"> * 输出：false</span><br><span class="hljs-comment"> * 示例 2：</span><br><span class="hljs-comment"> * 输入：A = [3,4,5,1,2], B = [4,1]</span><br><span class="hljs-comment"> * 输出：true</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 限制：</span><br><span class="hljs-comment"> * 0 &lt;= 节点个数 &lt;= 10000</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 思路：https://leetcode-cn.com/problems/shu-de-zi-jie-gou-lcof/solution/mian-shi-ti-26-shu-de-zi-jie-gou-xian-xu-bian-li-p/</span><br><span class="hljs-comment"> */</span><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Definition for a binary tree node.</span><br><span class="hljs-comment"> * public class TreeNode &#123;</span><br><span class="hljs-comment"> *     int val;</span><br><span class="hljs-comment"> *     TreeNode left;</span><br><span class="hljs-comment"> *     TreeNode right;</span><br><span class="hljs-comment"> *     TreeNode(int x) &#123; val = x; &#125;</span><br><span class="hljs-comment"> * &#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isSubStructure</span><span class="hljs-params">(TreeNode A, TreeNode B)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> (A != <span class="hljs-keyword">null</span> &amp;&amp; B != <span class="hljs-keyword">null</span>)<br>                &amp;&amp; (recur(A, B) || isSubStructure(A.left, B) || isSubStructure(A.right, B));<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">recur</span><span class="hljs-params">(TreeNode A, TreeNode B)</span> </span>&#123;<br><br>        <span class="hljs-keyword">if</span> (B == <span class="hljs-keyword">null</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>        &#125;<br><br>        <span class="hljs-keyword">if</span> (A == <span class="hljs-keyword">null</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>        &#125;<br><br>        <span class="hljs-keyword">if</span> (A.val != B.val) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> recur(A.left, B.left) &amp;&amp; recur(A.right, B.right);<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
             </div>
             <hr>
             <div>
@@ -274,18 +274,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/04/17/%E5%89%91%E6%8C%87Offer26/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeetCode剑指Offer26.树的子结构</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/04/15/%E5%89%91%E6%8C%87Offer24/">
-                        <span class="hidden-mobile">LeetCode剑指Offer24.反转链表</span>
+                      <a href="/2021/04/16/%E5%89%91%E6%8C%87Offer25/">
+                        <span class="hidden-mobile">LeetCode剑指Offer25.合并两个排序的链表</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
