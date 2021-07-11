@@ -1,0 +1,480 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/headphoto.png">
+  <link rel="icon" href="/img/headphoto.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Swish">
+  <meta name="keywords" content="">
+  
+  <title>Java绘图软件 - Swish&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/androidstudio.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":5},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Swish's Blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/background.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Java绘图软件">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-05-19 00:00" pubdate>
+        May 19, 2021
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.7k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      26
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Java绘图软件</h1>
+            
+            <div class="markdown-body">
+              <p>总共有两个类<br>DrawPixel.class<br>DrawMouse.class</p>
+<p>下面先解释“自然”、“谢尔宾斯基三角形”、“谢尔宾斯基地毯”功能</p>
+<p>自然</p>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs 自然">1.平面上随机选A,B,C三个点。再随机选一个点，记为P。<br>2.有一个三面色字，每丢一次，则选中ABC三个中一点。<br>开始游戏：<br>重复丢色子<br>1.如果选中A，则取A和P的中点P1，画黑。第二次开始再选中A，则取A和P1的中点为新的P1，画黑。<br>2.如果选中B，则取B和P的中点P2，画黑。第二次开始再选中B，则取B和P2的中点为新的P2，画黑。<br>3.如果选中C，则取C和P的中点P3，画黑。第二次开始再选中C，则取C和P3的中点为新的P3，画黑。<br>一直重复，每点一下鼠标，丢100次色子<br></code></pre></div></td></tr></table></figure>
+
+<p><img src="/Users/swish/Desktop/MyBlog/source/_posts/%E6%88%AA%E5%B1%8F2021-07-11%20%E4%B8%8B%E5%8D%883.49.40.png" srcset="/img/loading.gif" lazyload alt="截屏2021-07-11 下午3.49.40"></p>
+<p>谢尔宾斯基三角形</p>
+<p><img src="/Users/swish/Desktop/MyBlog/source/_posts/%E6%88%AA%E5%B1%8F2021-07-11%20%E4%B8%8B%E5%8D%883.52.12.png" srcset="/img/loading.gif" lazyload alt="截屏2021-07-11 下午3.52.12"></p>
+<p>谢尔宾斯基地毯</p>
+<p><img src="/Users/swish/Desktop/MyBlog/source/_posts/%E6%88%AA%E5%B1%8F2021-07-11%20%E4%B8%8B%E5%8D%883.54.46.png" srcset="/img/loading.gif" lazyload alt="截屏2021-07-11 下午3.54.46"></p>
+<p>接着呈上代码</p>
+<p>DrawPixel.class</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.wh.drawPixel0519;<br><br><span class="hljs-keyword">import</span> java.awt.*;<br><br><span class="hljs-keyword">import</span> javax.swing.*;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Java绘图软件</span><br><span class="hljs-comment"> * 1.显示美颜相机的界面（功能选择）：java.awt java.swing</span><br><span class="hljs-comment"> * 2.处理图像效果，显示在界面（画笔/画布）</span><br><span class="hljs-comment"> * 3.事件监听器（设计界面程序的交互功能）</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DrawPixel</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        DrawPixel dp = <span class="hljs-keyword">new</span> DrawPixel();<br>        dp.initUI();<br>    &#125;<br><br>    <span class="hljs-comment">//1.显示界面效果</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">initUI</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-comment">//窗体组件</span><br>        JFrame jf = <span class="hljs-keyword">new</span> JFrame();<br>        jf.setSize(<span class="hljs-number">800</span>, <span class="hljs-number">800</span>);<br>        jf.setTitle(<span class="hljs-string">&quot;绘图软件&quot;</span>);<br>        <span class="hljs-comment">//设置居中显示</span><br>        jf.setLocationRelativeTo(<span class="hljs-keyword">null</span>);<br>        <span class="hljs-comment">//设置进程退出的方法，若不设置点右上角X不会关闭程序</span><br>        jf.setDefaultCloseOperation(<span class="hljs-number">3</span>);<br>        <span class="hljs-comment">//流式布局管理器</span><br>        FlowLayout flow = <span class="hljs-keyword">new</span> FlowLayout();<br>        jf.setLayout(flow);<br>        <span class="hljs-comment">//设置按钮并添加</span><br>        JButton jbu1 = <span class="hljs-keyword">new</span> JButton(<span class="hljs-string">&quot;直线&quot;</span>);<br>        jf.add(jbu1);<br>        JButton jbu2 = <span class="hljs-keyword">new</span> JButton(<span class="hljs-string">&quot;矩形&quot;</span>);<br>        jf.add(jbu2);<br>        JButton jbu3 = <span class="hljs-keyword">new</span> JButton(<span class="hljs-string">&quot;椭圆&quot;</span>);<br>        jf.add(jbu3);<br>        JButton jbu4 = <span class="hljs-keyword">new</span> JButton(<span class="hljs-string">&quot;铅笔&quot;</span>);<br>        jf.add(jbu4);<br>        JButton jbu5 = <span class="hljs-keyword">new</span> JButton(<span class="hljs-string">&quot;自然&quot;</span>);<br>        jf.add(jbu5);<br>        JButton jbu6 = <span class="hljs-keyword">new</span> JButton(<span class="hljs-string">&quot;谢尔宾斯基三角形&quot;</span>);<br>        jf.add(jbu6);<br>        JButton jbu7 = <span class="hljs-keyword">new</span> JButton(<span class="hljs-string">&quot;谢尔宾斯基地毯&quot;</span>);<br>        jf.add(jbu7);<br>        JButton jbu8 = <span class="hljs-keyword">new</span> JButton(<span class="hljs-string">&quot;清空&quot;</span>);<br>        jf.add(jbu8);<br>        <span class="hljs-comment">//设置可见</span><br>        jf.setVisible(<span class="hljs-keyword">true</span>);<br>        <span class="hljs-comment">//获取画笔：图像显示在哪个组件上，画笔就该从该组件上获取</span><br>        <span class="hljs-comment">//从窗体上获取画笔，一定要在窗体显示可见之后</span><br>        Graphics g = jf.getGraphics();<br>        <span class="hljs-comment">/*</span><br><span class="hljs-comment">         事件监听器</span><br><span class="hljs-comment">         a.事件源：当前动作所发生的组件</span><br><span class="hljs-comment">         b.确定监听器方法：鼠标监听器方法</span><br><span class="hljs-comment">         c.绑定事件处理类</span><br><span class="hljs-comment">         */</span><br>        DrawMouse mouse = <span class="hljs-keyword">new</span> DrawMouse();<br>        <span class="hljs-comment">//匿名内部类</span><br>        <span class="hljs-comment">//给窗体添加鼠标监听器方法</span><br>        jf.addMouseListener(mouse);<br>        <span class="hljs-comment">//拖动监听器</span><br>        jf.addMouseMotionListener(mouse);<br>        <span class="hljs-comment">//给按钮添加动作监听器</span><br>        jbu1.addActionListener(mouse);<br>        jbu2.addActionListener(mouse);<br>        jbu3.addActionListener(mouse);<br>        jbu4.addActionListener(mouse);<br>        jbu5.addActionListener(mouse);<br>        jbu6.addActionListener(mouse);<br>        jbu7.addActionListener(mouse);<br>        jbu8.addActionListener(mouse);<br>        <span class="hljs-comment">//把画笔对象传递给DrawMouse类</span><br>        mouse.g = g;<br>        <span class="hljs-comment">//把窗体对象传递给DrawMouse类</span><br>        mouse.jf = jf;<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>DrawMouse.class</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.wh.drawPixel0519;<br><br><span class="hljs-keyword">import</span> java.awt.Graphics;<br><br><span class="hljs-keyword">import</span> java.awt.event.*;<br><br><span class="hljs-keyword">import</span> java.util.Random;<br><br><span class="hljs-keyword">import</span> javax.swing.*;<br><br><span class="hljs-comment">//事件处理类</span><br><span class="hljs-comment">//实现接口一定要重写接口中所有的抽象方法</span><br><span class="hljs-comment">//实现(继承)接口：public class 子类 implements 接口, 接口 &#123;&#125;</span><br><span class="hljs-comment">//MouserListener中需要重写mouseClicked、mousePressed、mouseReleased、mouseEntered、mouseExited抽象方法</span><br><span class="hljs-comment">//ActionListener中需要重写actionPerformed抽象方法</span><br><span class="hljs-comment">//MouseMotionListener需要重写mouseDragged、mouseMoved抽象方法</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DrawMouse</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">MouseListener</span>, <span class="hljs-title">ActionListener</span>, <span class="hljs-title">MouseMotionListener</span> </span>&#123;<br>    <span class="hljs-comment">//保存传递过来的画笔对象</span><br>    <span class="hljs-keyword">public</span> Graphics g;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> x1, y1, x2, y2;<br>    <span class="hljs-keyword">public</span> String name;<br>    <span class="hljs-keyword">public</span> JFrame jf;<br>    <span class="hljs-keyword">int</span> n = <span class="hljs-number">10</span>;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">actionPerformed</span><span class="hljs-params">(ActionEvent e)</span> </span>&#123;<br>        <span class="hljs-comment">//获取当前的事件源：e.getSource() == jbu</span><br>        <span class="hljs-comment">//获取当前事件源上的内容</span><br>        name = e.getActionCommand();<br>        System.out.println(<span class="hljs-string">&quot;点击按钮：&quot;</span> + name);<br>        <span class="hljs-keyword">if</span> (name == <span class="hljs-string">&quot;清空&quot;</span>) &#123;<br>            jf.repaint();<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment">//自然</span><br>    Random rand = <span class="hljs-keyword">new</span> Random();<br>    <span class="hljs-keyword">int</span> ax = rand.nextInt(<span class="hljs-number">801</span>);<br>    <span class="hljs-keyword">int</span> ay = rand.nextInt(<span class="hljs-number">801</span>);<br>    <span class="hljs-keyword">int</span> bx = rand.nextInt(<span class="hljs-number">801</span>);<br>    <span class="hljs-keyword">int</span> by = rand.nextInt(<span class="hljs-number">801</span>);<br>    <span class="hljs-keyword">int</span> cx = rand.nextInt(<span class="hljs-number">801</span>);<br>    <span class="hljs-keyword">int</span> cy = rand.nextInt(<span class="hljs-number">801</span>);<br>    <span class="hljs-keyword">int</span> px = rand.nextInt(<span class="hljs-number">801</span>);<br>    <span class="hljs-keyword">int</span> py = rand.nextInt(<span class="hljs-number">801</span>);<br>    <span class="hljs-keyword">int</span> ran;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">mouseClicked</span><span class="hljs-params">(MouseEvent e)</span> </span>&#123;<br><br>        <span class="hljs-keyword">if</span> (name == <span class="hljs-string">&quot;自然&quot;</span>) &#123;<br><br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++) &#123;<br>                ran = rand.nextInt(<span class="hljs-number">3</span>);<br><br>                <span class="hljs-keyword">switch</span> (ran) &#123;<br>                    <span class="hljs-comment">//A</span><br>                    <span class="hljs-keyword">case</span> <span class="hljs-number">0</span>:<br>                        px = (ax + px) / <span class="hljs-number">2</span>;<br>                        py = (ay + py) / <span class="hljs-number">2</span>;<br>                        g.drawLine(px, py, px, py);<br>                        <span class="hljs-keyword">break</span>;<br>                    <span class="hljs-comment">//B</span><br>                    <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:<br>                        px = (bx + px) / <span class="hljs-number">2</span>;<br>                        py = (by + py) / <span class="hljs-number">2</span>;<br>                        g.drawLine(px, py, px, py);<br>                        <span class="hljs-keyword">break</span>;<br>                    <span class="hljs-comment">//C</span><br>                    <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:<br>                        px = (cx + px) / <span class="hljs-number">2</span>;<br>                        py = (cy + py) / <span class="hljs-number">2</span>;<br>                        g.drawLine(px, py, px, py);<br>                        <span class="hljs-keyword">break</span>;<br>                &#125;<br><br>            &#125;<br><br>        &#125;<br><br>        <span class="hljs-keyword">if</span> (name == <span class="hljs-string">&quot;谢尔宾斯基三角形&quot;</span>) &#123;<br>            drawTriangle(g,<span class="hljs-number">100</span>, (<span class="hljs-keyword">int</span>)(<span class="hljs-number">400</span> + Math.sqrt(<span class="hljs-number">3</span>) * <span class="hljs-number">150</span>), <span class="hljs-number">600</span>);<br>            sierpinskiTriangle(g,<span class="hljs-number">100</span>, (<span class="hljs-keyword">int</span>)(<span class="hljs-number">400</span> + Math.sqrt(<span class="hljs-number">3</span>) * <span class="hljs-number">150</span>), <span class="hljs-number">600</span>, <span class="hljs-number">10</span>);<br>        &#125;<br><br>        <span class="hljs-keyword">if</span> (name == <span class="hljs-string">&quot;谢尔宾斯基地毯&quot;</span>) &#123;<br>            g.drawRect(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">600</span>, <span class="hljs-number">600</span>);<br>            sierpinskiCarpet(g, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">600</span>, <span class="hljs-number">5</span>);<br>        &#125;<br><br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">mousePressed</span><span class="hljs-params">(MouseEvent e)</span> </span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;按下&quot;</span>);<br>        <span class="hljs-comment">//获取当前坐标</span><br>        x1 = e.getX();<br>        y1 = e.getY();<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">mouseReleased</span><span class="hljs-params">(MouseEvent e)</span> </span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;释放&quot;</span>);<br>        <span class="hljs-comment">//获取当前坐标</span><br>        <span class="hljs-keyword">int</span> x2 = e.getX();<br>        <span class="hljs-keyword">int</span> y2 = e.getY();<br><br>        <span class="hljs-keyword">switch</span> (name) &#123;<br>            <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;直线&quot;</span>:<br>                g.drawLine(x1, y1, x2, y2);<br>                <span class="hljs-keyword">break</span>;<br>            <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;矩形&quot;</span>:<br><br>                <span class="hljs-keyword">if</span> (x2 &gt; x1 &amp;&amp; y2 &gt; y1) &#123;<br>                    g.drawRect(x1, y1, x2 - x1, y2 - y1);<br>                &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (x2 &gt; x1 &amp;&amp; y2 &lt; y1) &#123;<br>                    g.drawRect(x1, y2, x2 - x1, y1 - y2);<br>                &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (x2 &lt; x1 &amp;&amp; y2 &gt; y1) &#123;<br>                    g.drawRect(x2, y1, x1 - x2, y2 - y1);<br>                &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (x2 &lt; x1 &amp;&amp; y2 &lt; y1) &#123;<br>                    g.drawRect(x2, y2, x1 - x2, y1 - y2);<br>                &#125;<br><br>                <span class="hljs-keyword">break</span>;<br>            <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;椭圆&quot;</span>:<br><br>                <span class="hljs-keyword">if</span> (x2 &gt; x1 &amp;&amp; y2 &gt; y1) &#123;<br>                    g.drawOval(x1, y1, x2 - x1, y2 - y1);<br>                &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (x2 &gt; x1 &amp;&amp; y2 &lt; y1) &#123;<br>                    g.drawOval(x1, y2, x2 - x1, y1 - y2);<br>                &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (x2 &lt; x1 &amp;&amp; y2 &gt; y1) &#123;<br>                    g.drawOval(x2, y1, x1 - x2, y2 - y1);<br>                &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (x2 &lt; x1 &amp;&amp; y2 &lt; y1) &#123;<br>                    g.drawOval(x2, y2, x1 - x2, y1 - y2);<br>                &#125;<br><br>                <span class="hljs-keyword">break</span>;<br>            <span class="hljs-keyword">default</span>:<br>        &#125;<br><br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">mouseEntered</span><span class="hljs-params">(MouseEvent e)</span> </span>&#123;<br><br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">mouseExited</span><span class="hljs-params">(MouseEvent e)</span> </span>&#123;<br><br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">mouseDragged</span><span class="hljs-params">(MouseEvent e)</span> </span>&#123;<br><br>        <span class="hljs-comment">//一段曲线可以被分解为许多小段的直线连接在一起，因此，我们画曲线的方法就是画出线段并不断替换它的末端坐标</span><br>        <span class="hljs-keyword">if</span> (name == <span class="hljs-string">&quot;铅笔&quot;</span>) &#123;<br>            x2 = e.getX();<br>            y2 = e.getY();<br>            g.drawLine(x1, y1, x2 ,y2);<br>            x1 = x2;<br>            y1 = y2;<br>        &#125;<br><br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">mouseMoved</span><span class="hljs-params">(MouseEvent e)</span> </span>&#123;<br><br>    &#125;<br><br>    <span class="hljs-comment">//画最大的等边三角形，(x,y)为左下角顶点，d为边长</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">drawTriangle</span><span class="hljs-params">(Graphics g, <span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y, <span class="hljs-keyword">int</span> d)</span> </span>&#123;<br>        g.drawLine(x, y, x + d, y);<br>        g.drawLine(x + d, y, x + d / <span class="hljs-number">2</span>, (<span class="hljs-keyword">int</span>)(y - Math.sqrt(<span class="hljs-number">3</span>) * d / <span class="hljs-number">2</span>));<br>        g.drawLine(x + d / <span class="hljs-number">2</span>, (<span class="hljs-keyword">int</span>)(y - Math.sqrt(<span class="hljs-number">3</span>) * d / <span class="hljs-number">2</span>), x, y);<br>    &#125;<br><br>    <span class="hljs-comment">//谢尔宾斯基三角形</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sierpinskiTriangle</span><span class="hljs-params">(Graphics g, <span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y, <span class="hljs-keyword">int</span> d, <span class="hljs-keyword">int</span> n)</span> </span>&#123;<br>        n--;<br>        d = d &gt;&gt; <span class="hljs-number">1</span>;<br>        x = x + d;<br>        <span class="hljs-comment">//画倒三角</span><br>        g.drawLine(x, y, x + (d &gt;&gt; <span class="hljs-number">1</span>), (<span class="hljs-keyword">int</span>)(y - Math.sqrt(<span class="hljs-number">3</span>) * d / <span class="hljs-number">2</span>));<br>        g.drawLine(x + (d &gt;&gt; <span class="hljs-number">1</span>), (<span class="hljs-keyword">int</span>)(y - Math.sqrt(<span class="hljs-number">3</span>) * d / <span class="hljs-number">2</span>), x - (d &gt;&gt; <span class="hljs-number">1</span>), (<span class="hljs-keyword">int</span>)(y - Math.sqrt(<span class="hljs-number">3</span>) * d / <span class="hljs-number">2</span>));<br>        g.drawLine(x - (d &gt;&gt; <span class="hljs-number">1</span>), (<span class="hljs-keyword">int</span>)(y - Math.sqrt(<span class="hljs-number">3</span>) * d / <span class="hljs-number">2</span>), x, y);<br><br>        <span class="hljs-keyword">if</span> (n &lt;= <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br><br>        <span class="hljs-comment">//递归画倒小三角</span><br>        sierpinskiTriangle(g, x, y, d, n);<br>        sierpinskiTriangle(g, x - d, y, d, n);<br>        sierpinskiTriangle(g, x - (d &gt;&gt; <span class="hljs-number">1</span>), (<span class="hljs-keyword">int</span>)(y - Math.sqrt(<span class="hljs-number">3</span>) * d / <span class="hljs-number">2</span>), d, n);<br>    &#125;<br><br>    <span class="hljs-comment">//谢尔宾斯基地毯</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sierpinskiCarpet</span><span class="hljs-params">(Graphics g, <span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y, <span class="hljs-keyword">int</span> d, <span class="hljs-keyword">int</span> n)</span> </span>&#123;<br><br>        <span class="hljs-keyword">if</span> (n &lt;= <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br><br>        n--;<br>        g.fillRect(x + d / <span class="hljs-number">3</span>, y + d / <span class="hljs-number">3</span>, d / <span class="hljs-number">3</span>, d / <span class="hljs-number">3</span>);<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">3</span>; i++) &#123;<br><br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">3</span>; j++) &#123;<br>                sierpinskiCarpet(g, x + j * d / <span class="hljs-number">3</span>, y + i * d / <span class="hljs-number">3</span>, d / <span class="hljs-number">3</span>, n);<br>            &#125;<br><br>        &#125;<br><br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Java%E9%A1%B9%E7%9B%AE/">Java项目</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%A1%B9%E7%9B%AE/">项目</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/04/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ12/">
+                        <span class="hidden-mobile">牛客网华为机试HJ12.字符串反转</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
