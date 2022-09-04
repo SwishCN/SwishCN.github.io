@@ -56,33 +56,6 @@
   
   
   <entry>
-    <title>牛客网华为机试HJ76.尼科彻斯定理</title>
-    <link href="/2021/04/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ76/"/>
-    <url>/2021/04/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ76/</url>
-    
-    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * HJ76.尼科彻斯定理</span><br><span class="hljs-comment"> * 验证尼科彻斯定理，即：任何一个整数m的立方都可以写成m个连续奇数之和。</span><br><span class="hljs-comment"> * 例如：</span><br><span class="hljs-comment"> * 1^3=1</span><br><span class="hljs-comment"> * 2^3=3+5</span><br><span class="hljs-comment"> * 3^3=7+9+11</span><br><span class="hljs-comment"> * 4^3=13+15+17+19</span><br><span class="hljs-comment"> * 输入一个正整数m（m≤100），将m的立方写成m个连续奇数之和的形式输出。</span><br><span class="hljs-comment"> * 本题含有多组输入数据。</span><br><span class="hljs-comment"> * 输入描述:</span><br><span class="hljs-comment"> * 输入一个int整数</span><br><span class="hljs-comment"> * 输出描述:</span><br><span class="hljs-comment"> * 输出分解后的string</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 示例1</span><br><span class="hljs-comment"> * 输入</span><br><span class="hljs-comment"> * 6</span><br><span class="hljs-comment"> * 输出</span><br><span class="hljs-comment"> * 31+33+35+37+39+41</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NCHJ76</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        Scanner scan = <span class="hljs-keyword">new</span> Scanner(System.in);<br><br>        <span class="hljs-keyword">while</span> (scan.hasNext()) &#123;<br>            <span class="hljs-keyword">int</span> m = scan.nextInt();<br>            <span class="hljs-keyword">int</span> first = (<span class="hljs-keyword">int</span>)Math.pow(m,<span class="hljs-number">2</span>) - m + <span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;<br><br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; m - <span class="hljs-number">1</span>; i = i + <span class="hljs-number">2</span>, j++) &#123;<br>                System.out.print(first + i + <span class="hljs-string">&quot;+&quot;</span>);<br>            &#125;<br><br>            System.out.println(first + i);<br>        &#125;<br><br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>]]></content>
-    
-    
-    <categories>
-      
-      <category>牛客网华为机试题解</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Java</tag>
-      
-      <tag>牛客网</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>牛客网华为机试HJ7.取近似值</title>
     <link href="/2021/04/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ7/"/>
     <url>/2021/04/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ7/</url>
@@ -164,92 +137,11 @@
   
   
   <entry>
-    <title>牛客网华为机试HJ5.进制转换</title>
-    <link href="/2021/04/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ5/"/>
-    <url>/2021/04/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ5/</url>
+    <title>牛客网华为机试HJ76.尼科彻斯定理</title>
+    <link href="/2021/04/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ76/"/>
+    <url>/2021/04/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ76/</url>
     
-    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">**<br> * HJ5.进制转换<br> * 写出一个程序，接受一个十六进制的数，输出该数值的十进制表示。<br> * 输入描述:<br> * 输入一个十六进制的数值字符串。<br> * 注意：一个用例会同时有多组输入数据，请参考帖子https:<span class="hljs-comment">//www.nowcoder.com/discuss/276处理多组输入的问题。</span><br> * 输出描述:<br> * 输出该数值的十进制字符串。不同组的测试用例用\n隔开。<br> *<br> * 示例<span class="hljs-number">1</span><br> * 输入<br> * <span class="hljs-number">0xA</span><br> * <span class="hljs-number">0xAA</span><br> * 输出<br> * <span class="hljs-number">10</span><br> * <span class="hljs-number">170</span><br> */<br><span class="hljs-keyword">import</span> java.util.*;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NCHJ5</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        Scanner scan = <span class="hljs-keyword">new</span> Scanner(System.in);<br>        <span class="hljs-keyword">while</span> (scan.hasNext()) &#123;<br>            String num = scan.next();<br>            System.out.println(Integer.decode(num));<br>        &#125;<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>]]></content>
-    
-    
-    <categories>
-      
-      <category>牛客网华为机试题解</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Java</tag>
-      
-      <tag>牛客网</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>牛客网华为机试HJ11.数字颠倒</title>
-    <link href="/2021/04/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ11/"/>
-    <url>/2021/04/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ11/</url>
-    
-    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * HJ11.数字颠倒</span><br><span class="hljs-comment"> * 输入一个整数，将这个整数以字符串的形式逆序输出</span><br><span class="hljs-comment"> * 程序不考虑负数的情况，若数字含有0，则逆序形式也含有0，如输入为100，则输出为001</span><br><span class="hljs-comment"> * 输入描述:</span><br><span class="hljs-comment"> * 输入一个int整数</span><br><span class="hljs-comment"> * 输出描述:</span><br><span class="hljs-comment"> * 将这个整数以字符串的形式逆序输出</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 示例1</span><br><span class="hljs-comment"> * 输入</span><br><span class="hljs-comment"> * 1516000</span><br><span class="hljs-comment"> * 输出</span><br><span class="hljs-comment"> * 0006151</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NCHJ11</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        Scanner scan = <span class="hljs-keyword">new</span> Scanner(System.in);<br>        StringBuilder num = <span class="hljs-keyword">new</span> StringBuilder(scan.next());<br>        System.out.print(num.reverse());<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>]]></content>
-    
-    
-    <categories>
-      
-      <category>牛客网华为机试题解</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Java</tag>
-      
-      <tag>牛客网</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>牛客网华为机试HJ84.统计大写字母个数</title>
-    <link href="/2021/04/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ84/"/>
-    <url>/2021/04/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ84/</url>
-    
-    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * HJ84.统计大写字母个数</span><br><span class="hljs-comment"> * 找出给定字符串中大写字符(即&#x27;A&#x27;-&#x27;Z&#x27;)的个数。</span><br><span class="hljs-comment"> * 输入描述:</span><br><span class="hljs-comment"> * 本题含有多组样例输入</span><br><span class="hljs-comment"> * 对于每组样例，输入一行，代表待统计的字符串</span><br><span class="hljs-comment"> * 输出描述:</span><br><span class="hljs-comment"> * 对于每组样例，输出一个整数，代表字符串中大写字母的个数</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 示例1</span><br><span class="hljs-comment"> * 输入</span><br><span class="hljs-comment"> * add123#$%#%#O</span><br><span class="hljs-comment"> * 150175017(&amp;^%&amp;$vabovbao</span><br><span class="hljs-comment"> * 输出</span><br><span class="hljs-comment"> * 1</span><br><span class="hljs-comment"> * 0</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NCHJ84</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        Scanner scan = <span class="hljs-keyword">new</span> Scanner(System.in);<br><br>        <span class="hljs-keyword">while</span> (scan.hasNext()) &#123;<br>            String str = scan.nextLine();<br>            <span class="hljs-keyword">int</span> c = <span class="hljs-number">0</span>;<br><br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i= <span class="hljs-number">0</span>; i &lt; str.length(); i++) &#123;<br><br>                <span class="hljs-keyword">if</span> (Character.isUpperCase(str.charAt(i))) &#123;<br>                    c++;<br>                &#125;<br><br>            &#125;<br><br>            System.out.println(c);<br>        &#125;<br><br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>]]></content>
-    
-    
-    <categories>
-      
-      <category>牛客网华为机试题解</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Java</tag>
-      
-      <tag>牛客网</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>牛客网华为机试HJ12.字符串反转</title>
-    <link href="/2021/04/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ12/"/>
-    <url>/2021/04/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ12/</url>
-    
-    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * HJ12.字符串反转</span><br><span class="hljs-comment"> * 接受一个只包含小写字母的字符串，然后输出该字符串反转后的字符串。（字符串长度不超过1000）</span><br><span class="hljs-comment"> * 输入描述:</span><br><span class="hljs-comment"> * 输入一行，为一个只包含小写字母的字符串。</span><br><span class="hljs-comment"> * 输出描述:</span><br><span class="hljs-comment"> * 输出该字符串反转后的字符串。</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 示例1</span><br><span class="hljs-comment"> * 输入</span><br><span class="hljs-comment"> * abcd</span><br><span class="hljs-comment"> * 输出</span><br><span class="hljs-comment"> * dcba</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NCHJ12</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        Scanner scan = <span class="hljs-keyword">new</span> Scanner(System.in);<br>        StringBuilder str = <span class="hljs-keyword">new</span> StringBuilder(scan.next());<br>        System.out.print(str.reverse());<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * HJ76.尼科彻斯定理</span><br><span class="hljs-comment"> * 验证尼科彻斯定理，即：任何一个整数m的立方都可以写成m个连续奇数之和。</span><br><span class="hljs-comment"> * 例如：</span><br><span class="hljs-comment"> * 1^3=1</span><br><span class="hljs-comment"> * 2^3=3+5</span><br><span class="hljs-comment"> * 3^3=7+9+11</span><br><span class="hljs-comment"> * 4^3=13+15+17+19</span><br><span class="hljs-comment"> * 输入一个正整数m（m≤100），将m的立方写成m个连续奇数之和的形式输出。</span><br><span class="hljs-comment"> * 本题含有多组输入数据。</span><br><span class="hljs-comment"> * 输入描述:</span><br><span class="hljs-comment"> * 输入一个int整数</span><br><span class="hljs-comment"> * 输出描述:</span><br><span class="hljs-comment"> * 输出分解后的string</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 示例1</span><br><span class="hljs-comment"> * 输入</span><br><span class="hljs-comment"> * 6</span><br><span class="hljs-comment"> * 输出</span><br><span class="hljs-comment"> * 31+33+35+37+39+41</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NCHJ76</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        Scanner scan = <span class="hljs-keyword">new</span> Scanner(System.in);<br><br>        <span class="hljs-keyword">while</span> (scan.hasNext()) &#123;<br>            <span class="hljs-keyword">int</span> m = scan.nextInt();<br>            <span class="hljs-keyword">int</span> first = (<span class="hljs-keyword">int</span>)Math.pow(m,<span class="hljs-number">2</span>) - m + <span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;<br><br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; m - <span class="hljs-number">1</span>; i = i + <span class="hljs-number">2</span>, j++) &#123;<br>                System.out.print(first + i + <span class="hljs-string">&quot;+&quot;</span>);<br>            &#125;<br><br>            System.out.println(first + i);<br>        &#125;<br><br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>]]></content>
     
     
     <categories>
@@ -299,11 +191,11 @@
   
   
   <entry>
-    <title>牛客网华为机试HJ2.计算字符个数</title>
-    <link href="/2021/04/22/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ2/"/>
-    <url>/2021/04/22/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ2/</url>
+    <title>牛客网华为机试HJ12.字符串反转</title>
+    <link href="/2021/04/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ12/"/>
+    <url>/2021/04/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ12/</url>
     
-    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * HJ2.计算字符个数</span><br><span class="hljs-comment"> * 写出一个程序，接受一个由字母、数字和空格组成的字符串，和一个字母，</span><br><span class="hljs-comment"> * 然后输出输入字符串中该字母的出现次数。不区分大小写。</span><br><span class="hljs-comment"> * 输入描述:</span><br><span class="hljs-comment"> * 第一行输入一个由字母和数字以及空格组成的字符串，第二行输入一个字母。</span><br><span class="hljs-comment"> * 输出描述:</span><br><span class="hljs-comment"> * 输出输入字符串中含有该字符的个数。</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 示例1</span><br><span class="hljs-comment"> * 输入</span><br><span class="hljs-comment"> * ABCabc</span><br><span class="hljs-comment"> * A</span><br><span class="hljs-comment"> * 输出</span><br><span class="hljs-comment"> * 2</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NCHJ2</span></span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] agrs)</span> </span>&#123;<br>        Scanner scan = <span class="hljs-keyword">new</span> Scanner(System.in);<br>        String str = scan.nextLine().toLowerCase();<br>        String c = scan.next().toLowerCase();<br>        System.out.print(str.length() - str.replaceAll(c, <span class="hljs-string">&quot;&quot;</span>).length());<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * HJ12.字符串反转</span><br><span class="hljs-comment"> * 接受一个只包含小写字母的字符串，然后输出该字符串反转后的字符串。（字符串长度不超过1000）</span><br><span class="hljs-comment"> * 输入描述:</span><br><span class="hljs-comment"> * 输入一行，为一个只包含小写字母的字符串。</span><br><span class="hljs-comment"> * 输出描述:</span><br><span class="hljs-comment"> * 输出该字符串反转后的字符串。</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 示例1</span><br><span class="hljs-comment"> * 输入</span><br><span class="hljs-comment"> * abcd</span><br><span class="hljs-comment"> * 输出</span><br><span class="hljs-comment"> * dcba</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NCHJ12</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        Scanner scan = <span class="hljs-keyword">new</span> Scanner(System.in);<br>        StringBuilder str = <span class="hljs-keyword">new</span> StringBuilder(scan.next());<br>        System.out.print(str.reverse());<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>]]></content>
     
     
     <categories>
@@ -326,11 +218,119 @@
   
   
   <entry>
-    <title>牛客网华为机试HJ1.字符串最后一个单词的长度</title>
-    <link href="/2021/04/22/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ1/"/>
-    <url>/2021/04/22/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ1/</url>
+    <title>牛客网华为机试HJ84.统计大写字母个数</title>
+    <link href="/2021/04/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ84/"/>
+    <url>/2021/04/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ84/</url>
     
-    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * HJ1.字符串最后一个单词的长度</span><br><span class="hljs-comment"> * 计算字符串最后一个单词的长度，单词以空格隔开。</span><br><span class="hljs-comment"> * 输入描述:</span><br><span class="hljs-comment"> * 输入一行，代表要计算的字符串，非空，长度小于5000。</span><br><span class="hljs-comment"> * 输出描述:</span><br><span class="hljs-comment"> * 输出一个整数，表示输入字符串最后一个单词的长度。</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 示例1</span><br><span class="hljs-comment"> * 输入</span><br><span class="hljs-comment"> * hello nowcoder</span><br><span class="hljs-comment"> * 输出</span><br><span class="hljs-comment"> * 8</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        Scanner scan = <span class="hljs-keyword">new</span> Scanner(System.in);<br>        String oldStr = scan.nextLine();<br>        String[] newStrArray = oldStr.split(<span class="hljs-string">&quot; &quot;</span>);<br>        System.out.print(newStrArray[newStrArray.length - <span class="hljs-number">1</span>].length());<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * HJ84.统计大写字母个数</span><br><span class="hljs-comment"> * 找出给定字符串中大写字符(即&#x27;A&#x27;-&#x27;Z&#x27;)的个数。</span><br><span class="hljs-comment"> * 输入描述:</span><br><span class="hljs-comment"> * 本题含有多组样例输入</span><br><span class="hljs-comment"> * 对于每组样例，输入一行，代表待统计的字符串</span><br><span class="hljs-comment"> * 输出描述:</span><br><span class="hljs-comment"> * 对于每组样例，输出一个整数，代表字符串中大写字母的个数</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 示例1</span><br><span class="hljs-comment"> * 输入</span><br><span class="hljs-comment"> * add123#$%#%#O</span><br><span class="hljs-comment"> * 150175017(&amp;^%&amp;$vabovbao</span><br><span class="hljs-comment"> * 输出</span><br><span class="hljs-comment"> * 1</span><br><span class="hljs-comment"> * 0</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NCHJ84</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        Scanner scan = <span class="hljs-keyword">new</span> Scanner(System.in);<br><br>        <span class="hljs-keyword">while</span> (scan.hasNext()) &#123;<br>            String str = scan.nextLine();<br>            <span class="hljs-keyword">int</span> c = <span class="hljs-number">0</span>;<br><br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i= <span class="hljs-number">0</span>; i &lt; str.length(); i++) &#123;<br><br>                <span class="hljs-keyword">if</span> (Character.isUpperCase(str.charAt(i))) &#123;<br>                    c++;<br>                &#125;<br><br>            &#125;<br><br>            System.out.println(c);<br>        &#125;<br><br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>牛客网华为机试题解</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Java</tag>
+      
+      <tag>牛客网</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>牛客网华为机试HJ11.数字颠倒</title>
+    <link href="/2021/04/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ11/"/>
+    <url>/2021/04/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ11/</url>
+    
+    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * HJ11.数字颠倒</span><br><span class="hljs-comment"> * 输入一个整数，将这个整数以字符串的形式逆序输出</span><br><span class="hljs-comment"> * 程序不考虑负数的情况，若数字含有0，则逆序形式也含有0，如输入为100，则输出为001</span><br><span class="hljs-comment"> * 输入描述:</span><br><span class="hljs-comment"> * 输入一个int整数</span><br><span class="hljs-comment"> * 输出描述:</span><br><span class="hljs-comment"> * 将这个整数以字符串的形式逆序输出</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 示例1</span><br><span class="hljs-comment"> * 输入</span><br><span class="hljs-comment"> * 1516000</span><br><span class="hljs-comment"> * 输出</span><br><span class="hljs-comment"> * 0006151</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NCHJ11</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        Scanner scan = <span class="hljs-keyword">new</span> Scanner(System.in);<br>        StringBuilder num = <span class="hljs-keyword">new</span> StringBuilder(scan.next());<br>        System.out.print(num.reverse());<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>牛客网华为机试题解</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Java</tag>
+      
+      <tag>牛客网</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>牛客网华为机试HJ5.进制转换</title>
+    <link href="/2021/04/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ5/"/>
+    <url>/2021/04/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ5/</url>
+    
+    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">**<br> * HJ5.进制转换<br> * 写出一个程序，接受一个十六进制的数，输出该数值的十进制表示。<br> * 输入描述:<br> * 输入一个十六进制的数值字符串。<br> * 注意：一个用例会同时有多组输入数据，请参考帖子https:<span class="hljs-comment">//www.nowcoder.com/discuss/276处理多组输入的问题。</span><br> * 输出描述:<br> * 输出该数值的十进制字符串。不同组的测试用例用\n隔开。<br> *<br> * 示例<span class="hljs-number">1</span><br> * 输入<br> * <span class="hljs-number">0xA</span><br> * <span class="hljs-number">0xAA</span><br> * 输出<br> * <span class="hljs-number">10</span><br> * <span class="hljs-number">170</span><br> */<br><span class="hljs-keyword">import</span> java.util.*;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NCHJ5</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        Scanner scan = <span class="hljs-keyword">new</span> Scanner(System.in);<br>        <span class="hljs-keyword">while</span> (scan.hasNext()) &#123;<br>            String num = scan.next();<br>            System.out.println(Integer.decode(num));<br>        &#125;<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>牛客网华为机试题解</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Java</tag>
+      
+      <tag>牛客网</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>牛客网华为机试HJ4.字符串分隔</title>
+    <link href="/2021/04/22/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ4/"/>
+    <url>/2021/04/22/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ4/</url>
+    
+    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * HJ4.字符串分隔</span><br><span class="hljs-comment"> * •连续输入字符串，请按长度为8拆分每个字符串后输出到新的字符串数组；</span><br><span class="hljs-comment"> * •长度不是8整数倍的字符串请在后面补数字0，空字符串不处理。</span><br><span class="hljs-comment"> * 输入描述:</span><br><span class="hljs-comment"> * 连续输入字符串(输入多次,每个字符串长度小于100)</span><br><span class="hljs-comment"> * 输出描述:</span><br><span class="hljs-comment"> * 输出到长度为8的新字符串数组</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 示例1</span><br><span class="hljs-comment"> * 输入</span><br><span class="hljs-comment"> * abc</span><br><span class="hljs-comment"> * 123456789</span><br><span class="hljs-comment"> * 输出</span><br><span class="hljs-comment"> * abc00000</span><br><span class="hljs-comment"> * 12345678</span><br><span class="hljs-comment"> * 90000000</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">import</span> java.util.*;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NCHJ4</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        Scanner scan = <span class="hljs-keyword">new</span> Scanner(System.in);<br><br>        <span class="hljs-keyword">while</span> (scan.hasNext()) &#123;<br>            StringBuilder str = <span class="hljs-keyword">new</span> StringBuilder(scan.nextLine());<br><br>            <span class="hljs-keyword">if</span> (str.length() % <span class="hljs-number">8</span> != <span class="hljs-number">0</span>) &#123;<br>                str.append(<span class="hljs-string">&quot;00000000&quot;</span>);<br>            &#125;<br><br>            <span class="hljs-keyword">while</span> (str.length() &gt;= <span class="hljs-number">8</span>) &#123;<br>                System.out.println(str.substring(<span class="hljs-number">0</span>, <span class="hljs-number">8</span>));<br>                str.delete(<span class="hljs-number">0</span>, <span class="hljs-number">8</span>);<br>            &#125;<br><br>        &#125;<br><br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>牛客网华为机试题解</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Java</tag>
+      
+      <tag>牛客网</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>牛客网华为机试HJ2.计算字符个数</title>
+    <link href="/2021/04/22/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ2/"/>
+    <url>/2021/04/22/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ2/</url>
+    
+    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * HJ2.计算字符个数</span><br><span class="hljs-comment"> * 写出一个程序，接受一个由字母、数字和空格组成的字符串，和一个字母，</span><br><span class="hljs-comment"> * 然后输出输入字符串中该字母的出现次数。不区分大小写。</span><br><span class="hljs-comment"> * 输入描述:</span><br><span class="hljs-comment"> * 第一行输入一个由字母和数字以及空格组成的字符串，第二行输入一个字母。</span><br><span class="hljs-comment"> * 输出描述:</span><br><span class="hljs-comment"> * 输出输入字符串中含有该字符的个数。</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 示例1</span><br><span class="hljs-comment"> * 输入</span><br><span class="hljs-comment"> * ABCabc</span><br><span class="hljs-comment"> * A</span><br><span class="hljs-comment"> * 输出</span><br><span class="hljs-comment"> * 2</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NCHJ2</span></span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] agrs)</span> </span>&#123;<br>        Scanner scan = <span class="hljs-keyword">new</span> Scanner(System.in);<br>        String str = scan.nextLine().toLowerCase();<br>        String c = scan.next().toLowerCase();<br>        System.out.print(str.length() - str.replaceAll(c, <span class="hljs-string">&quot;&quot;</span>).length());<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>]]></content>
     
     
     <categories>
@@ -380,11 +380,11 @@
   
   
   <entry>
-    <title>牛客网华为机试HJ4.字符串分隔</title>
-    <link href="/2021/04/22/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ4/"/>
-    <url>/2021/04/22/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ4/</url>
+    <title>牛客网华为机试HJ1.字符串最后一个单词的长度</title>
+    <link href="/2021/04/22/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ1/"/>
+    <url>/2021/04/22/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ1/</url>
     
-    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * HJ4.字符串分隔</span><br><span class="hljs-comment"> * •连续输入字符串，请按长度为8拆分每个字符串后输出到新的字符串数组；</span><br><span class="hljs-comment"> * •长度不是8整数倍的字符串请在后面补数字0，空字符串不处理。</span><br><span class="hljs-comment"> * 输入描述:</span><br><span class="hljs-comment"> * 连续输入字符串(输入多次,每个字符串长度小于100)</span><br><span class="hljs-comment"> * 输出描述:</span><br><span class="hljs-comment"> * 输出到长度为8的新字符串数组</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 示例1</span><br><span class="hljs-comment"> * 输入</span><br><span class="hljs-comment"> * abc</span><br><span class="hljs-comment"> * 123456789</span><br><span class="hljs-comment"> * 输出</span><br><span class="hljs-comment"> * abc00000</span><br><span class="hljs-comment"> * 12345678</span><br><span class="hljs-comment"> * 90000000</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">import</span> java.util.*;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NCHJ4</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        Scanner scan = <span class="hljs-keyword">new</span> Scanner(System.in);<br><br>        <span class="hljs-keyword">while</span> (scan.hasNext()) &#123;<br>            StringBuilder str = <span class="hljs-keyword">new</span> StringBuilder(scan.nextLine());<br><br>            <span class="hljs-keyword">if</span> (str.length() % <span class="hljs-number">8</span> != <span class="hljs-number">0</span>) &#123;<br>                str.append(<span class="hljs-string">&quot;00000000&quot;</span>);<br>            &#125;<br><br>            <span class="hljs-keyword">while</span> (str.length() &gt;= <span class="hljs-number">8</span>) &#123;<br>                System.out.println(str.substring(<span class="hljs-number">0</span>, <span class="hljs-number">8</span>));<br>                str.delete(<span class="hljs-number">0</span>, <span class="hljs-number">8</span>);<br>            &#125;<br><br>        &#125;<br><br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * HJ1.字符串最后一个单词的长度</span><br><span class="hljs-comment"> * 计算字符串最后一个单词的长度，单词以空格隔开。</span><br><span class="hljs-comment"> * 输入描述:</span><br><span class="hljs-comment"> * 输入一行，代表要计算的字符串，非空，长度小于5000。</span><br><span class="hljs-comment"> * 输出描述:</span><br><span class="hljs-comment"> * 输出一个整数，表示输入字符串最后一个单词的长度。</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * 示例1</span><br><span class="hljs-comment"> * 输入</span><br><span class="hljs-comment"> * hello nowcoder</span><br><span class="hljs-comment"> * 输出</span><br><span class="hljs-comment"> * 8</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        Scanner scan = <span class="hljs-keyword">new</span> Scanner(System.in);<br>        String oldStr = scan.nextLine();<br>        String[] newStrArray = oldStr.split(<span class="hljs-string">&quot; &quot;</span>);<br>        System.out.print(newStrArray[newStrArray.length - <span class="hljs-number">1</span>].length());<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>]]></content>
     
     
     <categories>
